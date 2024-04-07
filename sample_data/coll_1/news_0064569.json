@@ -1,0 +1,85 @@
+{
+  "organizations": [],
+  "uuid": "dc13b6c13ee2282e2b78a7edbcbba48fe173ea3e",
+  "thread": {
+    "social": {
+      "gplus": {
+        "shares": 0
+      },
+      "pinterest": {
+        "shares": 0
+      },
+      "vk": {
+        "shares": 0
+      },
+      "linkedin": {
+        "shares": 0
+      },
+      "facebook": {
+        "likes": 0,
+        "shares": 0,
+        "comments": 0
+      },
+      "stumbledupon": {
+        "shares": 0
+      }
+    },
+    "site_full": "www.cnbc.com",
+    "main_image": "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/02/28/105033976-4ED5-SBEU-022818-MarketOpen.600x400.jpg",
+    "site_section": "http://www.cnbc.com/id/15838652/device/rss/rss.html",
+    "section_title": "Squawk Box Europe",
+    "url": "https://www.cnbc.com/video/2018/02/28/european-stocks-open-lower-on-powells-comments-solvay-carrefour-to-report.html",
+    "country": "US",
+    "domain_rank": 767,
+    "title": "European stocks open lower on Powell’s comments; Solvay, Carrefour to report",
+    "performance_score": 0,
+    "site": "cnbc.com",
+    "participants_count": 0,
+    "title_full": "",
+    "spam_score": 0,
+    "site_type": "news",
+    "published": "2018-02-28T09:39:00.000+02:00",
+    "replies_count": 0,
+    "uuid": "dc13b6c13ee2282e2b78a7edbcbba48fe173ea3e"
+  },
+  "author": "",
+  "url": "https://www.cnbc.com/video/2018/02/28/european-stocks-open-lower-on-powells-comments-solvay-carrefour-to-report.html",
+  "ord_in_thread": 0,
+  "title": "European stocks open lower on Powell’s comments; Solvay, Carrefour to report",
+  "locations": [],
+  "entities": {
+    "persons": [
+      {
+        "name": "powell",
+        "sentiment": "negative"
+      },
+      {
+        "name": "jerome powell",
+        "sentiment": "none"
+      }
+    ],
+    "locations": [],
+    "organizations": [
+      {
+        "name": "solvay",
+        "sentiment": "negative"
+      },
+      {
+        "name": "carrefour",
+        "sentiment": "negative"
+      },
+      {
+        "name": "fed",
+        "sentiment": "none"
+      }
+    ]
+  },
+  "highlightText": "",
+  "language": "english",
+  "persons": [],
+  "text": "European stocks open lower on Powell’s comments; Solvay, Carrefour to report 12 Hours Ago European equities open lower on Wednesday morning following comments from Fed Chairman Jerome Powell committing to a gradual increase in interest rates.",
+  "external_links": [],
+  "published": "2018-02-28T09:39:00.000+02:00",
+  "crawled": "2018-02-28T21:52:45.000+02:00",
+  "highlightTitle": ""
+}

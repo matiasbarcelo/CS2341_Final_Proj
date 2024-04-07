@@ -1,0 +1,124 @@
+{
+  "organizations": [],
+  "uuid": "e17252151a2d36344b7104d14805414a55042abe",
+  "thread": {
+    "social": {
+      "gplus": {
+        "shares": 0
+      },
+      "pinterest": {
+        "shares": 0
+      },
+      "vk": {
+        "shares": 0
+      },
+      "linkedin": {
+        "shares": 0
+      },
+      "facebook": {
+        "likes": 0,
+        "shares": 0,
+        "comments": 0
+      },
+      "stumbledupon": {
+        "shares": 0
+      }
+    },
+    "site_full": "www.reuters.com",
+    "main_image": "https://s3.reutersmedia.net/resources/r/?m=02&d=20180227&t=2&i=1235609450&w=1200&r=LYNXNPEE1Q0YJ",
+    "site_section": "http://www.reuters.com/resources/archive/us/20180227.html",
+    "section_title": "Archive News &amp; Video for Tuesday, 27 Feb 2018 | Reuters.com",
+    "url": "https://www.reuters.com/article/uk-britain-eu-germany/german-firms-doing-business-in-uk-gloomy-about-brexit-survey-idUSKCN1GB1GJ",
+    "country": "US",
+    "domain_rank": 408,
+    "title": "German firms doing business in UK gloomy about Brexit - survey",
+    "performance_score": 0,
+    "site": "reuters.com",
+    "participants_count": 1,
+    "title_full": "",
+    "spam_score": 0,
+    "site_type": "news",
+    "published": "2018-02-27T20:09:00.000+02:00",
+    "replies_count": 0,
+    "uuid": "e17252151a2d36344b7104d14805414a55042abe"
+  },
+  "author": "Reuters Editorial",
+  "url": "https://www.reuters.com/article/uk-britain-eu-germany/german-firms-doing-business-in-uk-gloomy-about-brexit-survey-idUSKCN1GB1GJ",
+  "ord_in_thread": 0,
+  "title": "German firms doing business in UK gloomy about Brexit - survey",
+  "locations": [],
+  "entities": {
+    "persons": [
+      {
+        "name": "eric schweitzer",
+        "sentiment": "none"
+      },
+      {
+        "name": "carolyn julie fairbairn",
+        "sentiment": "none"
+      },
+      {
+        "name": "joachim lang",
+        "sentiment": "none"
+      },
+      {
+        "name": "schweitzer",
+        "sentiment": "none"
+      }
+    ],
+    "locations": [
+      {
+        "name": "berlin",
+        "sentiment": "none"
+      },
+      {
+        "name": "uk",
+        "sentiment": "none"
+      },
+      {
+        "name": "britain",
+        "sentiment": "none"
+      },
+      {
+        "name": "brexit",
+        "sentiment": "none"
+      },
+      {
+        "name": "germany",
+        "sentiment": "none"
+      }
+    ],
+    "organizations": [
+      {
+        "name": "reuters",
+        "sentiment": "negative"
+      },
+      {
+        "name": "eu",
+        "sentiment": "none"
+      },
+      {
+        "name": "confederation of british industry",
+        "sentiment": "none"
+      },
+      {
+        "name": "bdi",
+        "sentiment": "none"
+      },
+      {
+        "name": "dihk chambers of industry and commerce",
+        "sentiment": "none"
+      }
+    ]
+  },
+  "highlightText": "",
+  "language": "english",
+  "persons": [],
+  "text": "BERLIN (Reuters) - German businesses that trade in Britain are pessimistic about their prospects there, and some are planning to move operations to other markets, a survey by Germany’s DIHK Chambers of Industry and Commerce showed on Tuesday.\nThe survey, to which some 900 German firms operating in Britain responded, showed just 12 percent expected an improvement in business prospects there, with 36 percent expecting a deterioration. Fifty two percent expected no change.\n“Almost a year before the departure from the EU, the consequences of Brexit are a barely calculable risk,” DIHK President Eric Schweitzer said in a statement. “That is unsettling many German businesses.”\nThe exact consequences of Brexit for their businesses were still unclear to half of the firms in the survey, added Schweitzer, who appealed to the British government to set out reference points for a future relationship as soon as possible.\nFILE PHOTO: Business leaders including Germany's BDI Managing Director Joachim Lang and Carolyn Julie Fairbairn director-general of the Confederation of British Industry pose for a group picture outside 10 Downing Street, London, November 13, 2017. REUTERS/Peter Nicholls/File Photo Eight percent of those surveyed with investments in Britain already planned to move operations elsewhere due to Brexit. Schweitzer attributed this to firms perceiving a risk of rising costs due to customs levies and new layers of bureaucracy.\n“In my estimation, the sword of Damocles of a no deal still hangs menacingly over our bilateral economic relations,” he said, adding:\nFILE PHOTO: Germany's BDI Managing Director Joachim Lang and Carolyn Julie Fairbairn director-general of the Confederation of British Industry arrive with other business leaders in Downing Street, London, November 13, 2017. REUTERS/Peter Nicholls/File Photo “In addition to swift clarity on Brexit, the EU and the (German) government must also ensure that the internal market for the remaining EU 27 countries is further strengthened.”\nBritain’s trade minister Liam Fox will warn on Tuesday that staying in a customs union with the EU after Brexit would leave the country in a worse position than now, calling such a prospect “a sellout of Britain’s national interests.”\nThe extent of any British post-Brexit involvement in a customs union - which binds members into a trade bloc with common external tariffs - has emerged as one of the key issues of contention between Britain’s two main political parties.\nWriting by Paul Carrel; Editing by Hugh Lawson\n ",
+  "external_links": [
+    "http://thomsonreuters.com/en/about-us/trust-principles.html"
+  ],
+  "published": "2018-02-27T20:09:00.000+02:00",
+  "crawled": "2018-02-28T12:57:19.008+02:00",
+  "highlightTitle": ""
+}
