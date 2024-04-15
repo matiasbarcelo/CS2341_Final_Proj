@@ -10,6 +10,10 @@ file(COPY sample_data/ DESTINATION sample_data/)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 add_compile_options(-Wall -Wextra -pedantic)
 
+# testing here
+include(CTest)
+add_executable(test_AvlTree test_DSAvl_tree.cpp)
+add_test(NAME TestAvlTree COMMAND test_AvlTree)
 add_executable(rapidJSONExample rapidJSONExample.cpp)
 add_executable(supersearch main.cpp)
 
