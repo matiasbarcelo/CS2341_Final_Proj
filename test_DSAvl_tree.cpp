@@ -22,6 +22,8 @@ TEST_CASE("Checks that DSAvl_tree works", "[DSAvl_tree]"){
     testTree.insert(test2);
     testTree.insert(test3);
 
+    testTree.prettyPrintTree();
+
     // tests getKeys(), which uses LNR to return a vector
     vector<string> keysVector = testTree.getKeys();
     
