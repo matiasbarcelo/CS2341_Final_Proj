@@ -1,20 +1,21 @@
-#ifndef DSAVL_TREE_H
-#define DSAVL_TREE_H
+#ifndef DSAVL_TREE_VALUESMAP_H
+#define DSAVL_TREE_VALUESMAP_H
 
 using namespace std;
 
-/*
-    The project instructions indicated that I can use implementations from notes, and the CS 2341 class GitHub is considered a collection of "class notes";
-    so, I copied and pasted the implementation from the Data Structures GitHub DSAvl_tree.h so I wasn't rewriting everything and modified it for the use of this project.
+/**
+ * This is a slight variation of the DSAvl_tree.h implementation with the intent of giving the index words object
+ * a way of storing word count. Values is now a map instead of a set. The map contains the document ids as first
+ * and the amount of times the word key appears in the document as second.
 */
 
 template <typename Comparable, typename Comparable2>
-class DSAvl_tree{    
+class DSAvl_tree_ValuesMap{    
     private:
 
         struct AvlNode{
             Comparable key;
-            set<Comparable2> values;
+            map<Comparable2, size_t> values;
             AvlNode* left;
             AvlNode* right;
             int height;
@@ -24,9 +25,9 @@ class DSAvl_tree{
             : key{theKey}, left{lt}, right{rt}, height{h} {}
 
             // with a value
-            AvlNode(const Comparable &theKey, const Comparable2 &theValue, AvlNode *lt, AvlNode *rt, int h)
+            AvlNode(const Comparable &theKey, const Comparable2 &mapKey, AvlNode *lt, AvlNode *rt, int h)
             : key{theKey}, left{lt}, right{rt}, height{h} {
-                values.insert(theValue);
+                values.insert({mapKey, size_t(1)});
             }
         };
 
@@ -37,24 +38,24 @@ class DSAvl_tree{
     public:
 
     // Default constructor
-    DSAvl_tree() : root{nullptr}
+    DSAvl_tree_ValuesMap() : root{nullptr}
     {
     }
 
     // Rule-of-3 Part 1: Copy constructor
-    DSAvl_tree(const DSAvl_tree &rhs) : root{nullptr}
+    DSAvl_tree_ValuesMap(const DSAvl_tree_ValuesMap &rhs) : root{nullptr}
     {
         root = clone(rhs.root);
     }
 
     // Rule-of-3 Part 2: Destructor
-    ~DSAvl_tree()
+    ~DSAvl_tree_ValuesMap()
     {
         makeEmpty();
     }
 
     // Rule-of-3 Part 3: Copy assignment operator
-    DSAvl_tree &operator=(const DSAvl_tree &rhs)
+    DSAvl_tree_ValuesMap &operator=(const DSAvl_tree_ValuesMap &rhs)
     {
         if (this != &rhs)
         {
@@ -127,22 +128,22 @@ class DSAvl_tree{
     /**
      * Returns a map of all values for a key
     */
-    set<Comparable2> getValuesAsSet(const Comparable& theKey){
-        set<Comparable2> theSet;
-        getValuesAsSet(root, theKey, theSet);
-        return theSet;
+    map<Comparable2, size_t> getValuesAsMap(const Comparable& theKey){
+        map<Comparable2, size_t> theMap;
+        getValuesAsMap(root, theKey, theMap);
+        return theMap;
     }
 
     /**
      * Returns a string of all the values
     */
-    string getValuesAsString(const Comparable& theKey){
-        set<Comparable2> theSet = getValuesAsSet(theKey);
+    string getValuesMapAsString(const Comparable& theKey){
+        map<Comparable2, size_t> theMap = getValuesAsMap(theKey);
         string theString = "";
         bool hasValues = false;
         
-        for(const auto& value: theSet){
-            theString += value + ", ";
+        for(const auto& value: theMap){
+            theString += "(" + value.first + ": " + to_string(value.second) + "), ";
             if (hasValues == false){
                 hasValues = true;
             }
@@ -159,13 +160,13 @@ class DSAvl_tree{
     /**
      * Gets keys and values as a string
     */
-    string getKeysAndValuesAsString(){  
+    string getKeysAndValuesMapAsString(){  
         set<Comparable> theKeys = getKeysAsSet();
         string theString = "";
         
         for (const auto& key: theKeys){
             theString += key + ": {";
-            theString += getValuesAsString(key);
+            theString += getValuesMapAsString(key);
             theString += "}, ";
         }
         // removes the last space and comma added the last iteration
@@ -252,17 +253,17 @@ private:
     void insertValue(const Comparable &x, const Comparable2 &y, AvlNode *&t){
         if (t == nullptr){
             t = new AvlNode{x, y, nullptr, nullptr, 0};
-            return; // a single node is always balanced
+            return;
         }
 
         if (x == t->key){
-            t->values.insert(y);
+            t->values[y] += 1;
         }
         else if (x < t->key)
             insertValue(x, y, t->left);
         else
             insertValue(x, y, t->right);
-        
+
         balance(t);
     }
 
@@ -362,22 +363,22 @@ private:
         getKeysAsSet(node->right, theSet);
    }
 
-   /**
-     * gets Values as a set
+    /**
+     * gets Values as a map
     */
-   void getValuesAsSet(AvlNode* node, const Comparable& theKey, set<Comparable2>& theSet){
+   void getValuesAsMap(AvlNode* node, const Comparable& theKey, map<Comparable2, size_t>& theMap){
         if (node == nullptr){
             throw runtime_error("getValue() key not found.");
         }
 
         if (node->key == theKey){
-             theSet = node->values; // Key found, writing theMap is now the same as the key node's values field
+             theMap = node->values; // Key found, writing theMap is now the same as the key node's values field
         }
         else if (theKey < node->key){
-            getValuesAsSet(node->left, theKey, theSet);
+            getValuesAsMap(node->left, theKey, theMap);
         }
         else{
-            getValuesAsSet(node->right, theKey, theSet);
+            getValuesAsMap(node->right, theKey, theMap);
         }
    }
 

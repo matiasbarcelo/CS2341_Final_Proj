@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include "catch2/catch.hpp"
-#include "DSAvl_tree.h"
+#include "DSAvl_tree_ValuesMap.h"
 #include <iostream>
 using namespace std;
 
@@ -10,10 +10,10 @@ using namespace std;
  * I added getKeys(), getValues(), and insertValue()
 */
 
-TEST_CASE("Checks that DSAvl_tree works", "[DSAvl_tree]"){
+TEST_CASE("Checks that DSAvl_tree_ValuesMap works", "[DSAvl_tree_ValuesMap]"){
     
     // setting up the tree with some test values
-    DSAvl_tree<string, string> testTree;
+    DSAvl_tree_ValuesMap<string, string> testTree;
     string test1 = "test1";
     string test2 = "test2";
     string test3 = "test3";
@@ -50,19 +50,21 @@ TEST_CASE("Checks that DSAvl_tree works", "[DSAvl_tree]"){
     testTree.insertValue(test1, value1);
     testTree.insertValue(test1, value2);
 
-    set<string> theValuesOfTest1KeyAsSet = testTree.getValuesAsSet(test1);
+    map<string, size_t> theValuesOfTest1KeyAsMap = testTree.getValuesAsMap(test1);
 
-    REQUIRE(theValuesOfTest1KeyAsSet.find(value1) != theValuesOfTest1KeyAsSet.end());
-    REQUIRE(theValuesOfTest1KeyAsSet.find(value2) != theValuesOfTest1KeyAsSet.end());
+    REQUIRE(theValuesOfTest1KeyAsMap.find(value1) != theValuesOfTest1KeyAsMap.end());
+    REQUIRE(theValuesOfTest1KeyAsMap.find(value2) != theValuesOfTest1KeyAsMap.end());
 
-    string theValuesOfTest1KeyAsStr = testTree.getValuesAsString(test1);
+    string theValuesOfTest1KeyAsStr = testTree.getValuesMapAsString(test1);
     cout << theValuesOfTest1KeyAsStr << endl;
 
-    REQUIRE(theValuesOfTest1KeyAsStr == "doc_1, doc_2");
+    REQUIRE(theValuesOfTest1KeyAsStr == "(doc_1: 1), (doc_2: 1)");
+
+    testTree.insertValue(test1, value2);
 
     // checks to see if .getKeysAndValuesAsString() works
-    string theKeysAndValuesAsStr = testTree.getKeysAndValuesAsString();
+    string theKeysAndValuesAsStr = testTree.getKeysAndValuesMapAsString();
     cout << theKeysAndValuesAsStr << endl;
 
-    REQUIRE(theKeysAndValuesAsStr == "test1: {doc_1, doc_2}, test2: {}, test3: {}, test4: {doc_1}");
+    REQUIRE(theKeysAndValuesAsStr == "test1: {(doc_1: 1), (doc_2: 2)}, test2: {}, test3: {}, test4: {(doc_1: 1)}");
 }
