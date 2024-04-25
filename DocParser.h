@@ -6,11 +6,19 @@ using namespace std;
 
 class DocParser{
     private:
-        DSAvl_tree<string, string> stopwords;
+        DSAvl_tree<string, string>* stopwords;
         IndexHandler* index;
+        string fileDir;
     public:
-        DocParser();
-        
+        DocParser(string theFileDir, IndexHandler& theIndex);
+        ~DocParser();
+        void setupStopWords();
+        void printStopWords();
+        string getStopWordsAsString();
+        void parse();
+        void parseWords();
+        void parsePeople();
+        void parseOrgs();
 };
 
 #endif

@@ -76,7 +76,7 @@ void testReadJsonFile(const string &fileName)
     //  So we call GetArray() to get an iterable collection of elements
     auto persons = d["entities"]["persons"].GetArray();
 
-    // We iterate over the Array returned from the line above.
+    //  We iterate over the Array returned from the line above.
     //  Each element kind of operates like a little JSON document
     //  object in that you can use the same subscript notation
     //  to access particular values.
