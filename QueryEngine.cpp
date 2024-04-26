@@ -22,7 +22,7 @@ string QueryEngine::search(string theQuery){
 
     // variables
     map<size_t, string> searchResult;
-    set<string>* wordsToPass = new set<string>();
+    set<string> wordsToPass;
     string personToPass = "";
     string orgToPass = "";
     string evalString;
@@ -38,7 +38,7 @@ string QueryEngine::search(string theQuery){
         // searchResult = index->searchIndex(wordsToPass);
 
         // delete wordsToPass for memory management
-        delete wordsToPass;
+        
 
         // return the searchResults map
         // return searchResult;
@@ -50,12 +50,12 @@ string QueryEngine::search(string theQuery){
         // "PERSON:" was typed after the words
         personToPass = personCheck(stringStream, evalString);
         if(stringStream.eof()){
-            delete wordsToPass;
+            
             // return searchResult;
             return everythingAsString(wordsToPass, personToPass, orgToPass);
         }
         orgToPass = orgCheck(stringStream, evalString);
-        delete wordsToPass;
+        
         // return searchResult;
         return everythingAsString(wordsToPass, personToPass, orgToPass);
 
@@ -65,12 +65,12 @@ string QueryEngine::search(string theQuery){
         // "PERSON:" was typed after the words
         orgToPass = orgCheck(stringStream, evalString);
         if(stringStream.eof()){
-            delete wordsToPass;
+            
             // return searchResult;
             return everythingAsString(wordsToPass, personToPass, orgToPass);
         }
         personToPass = personCheck(stringStream, evalString);
-        delete wordsToPass;
+        
         // return searchResult;
         return everythingAsString(wordsToPass, personToPass, orgToPass);
 
@@ -78,45 +78,65 @@ string QueryEngine::search(string theQuery){
 
 }
 
-string QueryEngine::everythingAsString(set<string>* wordsToPass, string personToPass, string orgToPass){
+string QueryEngine::everythingAsString(set<string>& wordsToPass, string personToPass, string orgToPass){
     string allInfoAsString = "Words recieved in query: {";
-    for(const auto& word: *wordsToPass){
-        allInfoAsString += word + ", ";
+    for (const auto& word : wordsToPass){
+        string modifiedWord = word;
+        for (char& letter : modifiedWord){
+            letter = tolower(letter);
+        }
+        allInfoAsString += modifiedWord + ", ";
     }
 
     // gets rid of the last ", "
-    if(!wordsToPass->empty()){
+    if(!wordsToPass.empty()){
         allInfoAsString.pop_back();
         allInfoAsString.pop_back();
     }
+
+    toLowerCase(personToPass, orgToPass);
 
     allInfoAsString += "}, person: {" + personToPass + "} org: {" + orgToPass + "}";
 
     return allInfoAsString;
 }
 
-void QueryEngine::wordsCheck(istringstream& stringStream, string& evalString, set<string>* wordsToPass){
-    // first word to evalString
-    stringStream >> evalString;
+void QueryEngine::toLowerCase(string& personToPass, string& orgToPass){
+    for(auto& letter: personToPass){
+        letter = tolower(letter);
+    }
+
+    for(auto& letter: orgToPass){
+        letter = tolower(letter);
+    }
+}
+
+
+void QueryEngine::wordsCheck(istringstream& stringStream, string& evalString, set<string>& wordsToPass){
     
-    // if evalString doesn't have "PERSON:" AND "ORG:" AND string stream hasn't reached its endbit 
-    while((evalString.find("PERSON:") == string::npos) && (evalString.find("ORG:") == string::npos) && !stringStream.eof()){
+    while(stringStream >> evalString){
+        // if "PERSON:" or "ORG:" are found. Break out of the function.
+        if((evalString.find("PERSON:") != string::npos) || (evalString.find("ORG:") != string::npos)){
+            break;
+        }
+
+        // do the same process that was done to generate word trees in DocParser for evalString
+        // if the word is smaller than 2 chars, skip it
         if(evalString.size() < 2){
-            stringStream >> evalString;
             continue;
         }
-        // do the same process that was done to generate word trees in DocParser for evalString
+
+        // trim and stem
         Porter2Stemmer::trim(evalString);
         Porter2Stemmer::stem(evalString);
         
+        // if the word is a stop word, skip it.
         if(theStopWords->stopWordsTree->contains(evalString)){
-            stringStream >> evalString;
             continue;
         }
-        wordsToPass->insert(evalString);
 
-        // go on to next value in stringStream
-        stringStream >> evalString;
+        // insert it in the wordsToPass set
+        wordsToPass.insert(evalString);
     }
 }
 
@@ -133,10 +153,15 @@ string QueryEngine::personCheck(istringstream& stringStream, string& evalString)
         evalString = evalString.substr(7);
     }
 
+    thePerson += evalString;
+
     // assumes only one person can be searched for and not multiple people
-    while((!stringStream.eof()) && (evalString.find("ORG:") == string::npos)){
-        thePerson += evalString;
-        stringStream >> evalString;
+    while(stringStream >> evalString){
+        if(evalString.find("ORG:") != string::npos){
+            break;
+        }
+
+        thePerson += " " + evalString;
     }
     return thePerson;
 }
@@ -154,10 +179,15 @@ string QueryEngine::orgCheck(istringstream& stringStream, string& evalString){
         evalString = evalString.substr(4);
     }
 
+    theOrg += evalString;
+
     // assumes only one org can be searched for and not multiple orgs
-    while((!stringStream.eof()) && (evalString.find("ORG:") == string::npos)){
-        theOrg += evalString;
-        stringStream >> evalString;
+    while(stringStream >> evalString){
+        if(evalString.find("PERSON:") != string::npos){
+            break;
+        }
+
+        theOrg += " " + evalString;
     }
     return theOrg;
 }

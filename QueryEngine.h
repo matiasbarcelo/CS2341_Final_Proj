@@ -12,11 +12,12 @@ class QueryEngine{
     public:
         QueryEngine(IndexHandler& theIndex);
         ~QueryEngine();
-        void wordsCheck(istringstream& stringStream, string& evalString, set<string>* wordsToPass);
+        void wordsCheck(istringstream& stringStream, string& evalString, set<string>& wordsToPass);
         string personCheck(istringstream& stringStream, string& evalString);
         string orgCheck(istringstream& stringStream, string& evalString);
-        string everythingAsString(set<string>* wordsToPass, string person = "", string org = "");
+        string everythingAsString(set<string>& wordsToPass, string personToPass = "", string orgToPass = "");
         string search(string theQuery);
+        void toLowerCase(string& person, string& org);
 
 };
 

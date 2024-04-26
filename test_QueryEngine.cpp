@@ -15,8 +15,14 @@ TEST_CASE("Checks that DocParser works", "[DocParser]"){
     IndexHandler indexExample = IndexHandler();
     QueryEngine queryEngineExample = QueryEngine(indexExample);
 
-    cout << queryEngineExample.search("this is a fucking test PERSON:PATRICE O'NEAL ORG:Opie and Anthony") << endl;
-    cout << queryEngineExample.search("this is a fucking test PERSON: ANTHONY CUMIA ORG: Opie and Anthony") << endl;
-    cout << queryEngineExample.search("this is a fucking test ORG: Congress PERSON:MY SENATOR") << endl;
+    cout << queryEngineExample.search("Red Robbin be robbing mad robbins PERSON:PATRICE O'NEAL ORG:Opie and Anthony") << endl;
+    cout << queryEngineExample.search("this is a FREAKING test PERSON: ANTHONY CUMIA ORG: Opie and Anthony") << endl;
+    cout << queryEngineExample.search("this is a freaking test I SWEAR ORG: Congress PERSON:MY SENATOR") << endl;
+    cout << queryEngineExample.search("this time just some words") << endl;
+    cout << queryEngineExample.search("PERSON:MATIAS BARCELO ORG: SMU") << endl;
+    cout << queryEngineExample.search("PERSON:MATIAS BARCELo ") << endl;
+    cout << queryEngineExample.search(" ORG: SMU") << endl;
+    cout << queryEngineExample.search("ORG: SMU PERSON:MATIAS BARCELO") << endl;
+
 
 }
