@@ -68,10 +68,8 @@ void DocParser::parseWords(){
         filesystem::path filePath = file.path();
         string fileString = filePath.string();
         ifstream input(fileString);
-        cout << fileString << endl;
         
         if(!input.is_open()){
-            cout << "Hasn't terminated here yet" << endl;
             throw runtime_error("Could not open" + fileString + " in docparser parse function");
         }
 

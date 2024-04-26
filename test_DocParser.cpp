@@ -13,7 +13,7 @@ using namespace std;
 
 TEST_CASE("Checks that DocParser works", "[DocParser]"){
     IndexHandler indexExample = IndexHandler();
-    string fileDir = "sample_data/coll_2";
+    string fileDir = "sample_data/coll_1";
     DocParser parser = DocParser(fileDir, indexExample);
     string stopwordsString = parser.getStopWordsAsString();
     cout << stopwordsString << endl << endl;
