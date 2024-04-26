@@ -1,6 +1,8 @@
 #include "IndexHandler.h"
 #include "DSAvl_tree_ValuesMap.h"
 #include "DSAvl_tree.h"
+#include <vector>
+#include <set>
 using namespace std;
 
 IndexHandler::IndexHandler(){
@@ -27,6 +29,18 @@ void IndexHandler::addOrg(string org, string file_id){
     orgs->insertValue(org, file_id);
 }
 
+bool IndexHandler::wordsIsEmpty(){
+    return words->isEmpty();
+}
+
+bool IndexHandler::peopleIsEmpty(){
+    return people->isEmpty();
+}
+
+bool IndexHandler::orgsIsEmpty(){
+    return orgs->isEmpty();
+}
+
 string IndexHandler::wordsTreeAsString(){
     return words->getKeysAndValuesMapAsString();
 }
@@ -42,3 +56,23 @@ string IndexHandler::orgsTreeAsString(){
 string IndexHandler::peopleTreeAsString(){
     return people->getKeysAndValuesAsString();
 }
+
+// map<size_t, string> IndexHandler::searchIndex(set<string>* wordsSet, string person = "", string org = ""){
+    
+//     vector<set<string>> vectorOfWordSets;
+    
+//     for(const auto& word: *wordsSet){
+//         vectorOfWordSets.push_back(words->getValuesAsSet(word));
+//     }
+
+//     set<string> personSet;
+//     if(person != ""){
+//         personSet = people->getValuesAsSet(person);
+//     }
+
+//     set<string> orgSet;
+//     if(org != ""){
+//         orgSet = orgs->getValuesAsSet(org);
+//     }
+
+// }

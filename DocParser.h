@@ -2,18 +2,22 @@
 #define DOCPARSER_H
 #include "DSAvl_tree.h"
 #include "IndexHandler.h"
+#include "stopwords/StopWords.h"
 using namespace std;
 
 class DocParser{
     private:
-        DSAvl_tree<string, string>* stopwords;
         IndexHandler* index;
         string fileDir;
     public:
+        StopWords* theStopWords;
         DocParser(string theFileDir, IndexHandler& theIndex);
         ~DocParser();
         void setupStopWords();
-        void printStopWords();
+        void parseStopWordsCSV();
+        void makePerStopWords();
+        void decodePerStopWords();
+        void printPrettyTreeStopWords();
         string getStopWordsAsString();
         void parse();
         void parseWords();

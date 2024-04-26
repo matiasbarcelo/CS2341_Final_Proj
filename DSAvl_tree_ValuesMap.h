@@ -135,6 +135,25 @@ class DSAvl_tree_ValuesMap{
         getValuesAsMap(root, theKey, theMap);
         return theMap;
     }
+    /**
+     * Returns the Value DocIds as a set
+    */
+    set<Comparable2> getValuesAsSet(const Comparable& theKey){
+        map<Comparable2, size_t> theMap =  getValuesAsMap(theKey);
+        set<Comparable2> theSet;
+        for(const auto& value: theMap){
+            theSet.insert(value.first);   
+        }
+        return theSet;
+    }
+
+    /**
+     * Returns the number ascociated with the map docId
+    */
+    size_t getNumForDocId(const Comparable& theKey, const Comparable2 docId){
+        map<Comparable2, size_t> theMap =  getValuesAsMap(theKey);
+        return theMap[docId];
+    }
 
     /**
      * Returns a string of all the values
@@ -383,6 +402,8 @@ private:
             getValuesAsMap(node->right, theKey, theMap);
         }
    }
+
+   
 
     // Balancing: AVL Rotations
 
