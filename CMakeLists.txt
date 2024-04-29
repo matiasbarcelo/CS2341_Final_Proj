@@ -20,6 +20,8 @@ add_executable(test_DocParser test_DocParser.cpp DocParser.cpp IndexHandler.cpp 
 add_test(NAME TestDocParser COMMAND test_DocParser)
 add_executable(test_QueryEngine test_QueryEngine.cpp QueryEngine.cpp IndexHandler.cpp porter2_stemmer/porter2_stemmer.cpp)
 add_test(NAME TestQueryEngine COMMAND test_QueryEngine)
+add_executable(test_SearchEngine test_SearchEngine.cpp SearchEngine.cpp QueryEngine.cpp IndexHandler.cpp DocParser.cpp porter2_stemmer/porter2_stemmer.cpp)
+add_test(NAME TestSearchEngine COMMAND test_SearchEngine)
 
 
 add_executable(rapidJSONExample rapidJSONExample.cpp)

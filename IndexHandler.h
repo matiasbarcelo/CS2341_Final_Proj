@@ -4,6 +4,8 @@
 #include "DSAvl_tree.h"
 #include "DSAvl_tree_ValuesMap.h"
 #include <map>
+#include <utility>
+#include <vector>
 using namespace std;
 
 class IndexHandler{
@@ -28,7 +30,7 @@ class IndexHandler{
         string peopleTreeAsString();
         string orgsTreeAsString();
 
-        // map<size_t, string> searchIndex(set<string>* wordsSet, string person = "", string org = "");
-};
+        vector<pair<size_t,string>> searchIndex(set<string> wordsSet, string person = "", string org = "");
+ };
 
 #endif

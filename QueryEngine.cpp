@@ -4,7 +4,9 @@
 
 #include <iostream>
 #include <sstream>
-#include <map>
+#include <vector>
+#include <utility>
+
 using namespace std;
 
 QueryEngine::QueryEngine(IndexHandler& theIndex){
@@ -16,7 +18,67 @@ QueryEngine::~QueryEngine(){
     delete theStopWords;
 }
 
-string QueryEngine::search(string theQuery){
+vector<pair<size_t,string>> QueryEngine::superSearch(string theQuery){
+    // string stream for the Query
+    istringstream stringStream(theQuery);
+
+    // variables
+    vector<pair<size_t,string>> searchResult;
+    set<string> wordsToPass;
+    string personToPass = "";
+    string orgToPass = "";
+    string evalString;
+
+    wordsCheck(stringStream, evalString, wordsToPass);
+
+    // if it reached the endbit of the stringStream, that means that "PERSON:" and "ORG:" were not typed, therefore:
+    if(stringStream.eof()){
+        // send to IndexHandler to get search result in map variable created earlier
+
+        // return searchResult;
+        return index->searchIndex(wordsToPass);
+    }
+    
+    // either has to be "PERSON:" or "ORG:"; so, if statement only checks for those two.
+    if(evalString.find("PERSON:") != string::npos){
+        // "PERSON:" was typed after the words
+        personToPass = personCheck(stringStream, evalString);
+        if(stringStream.eof()){
+            // make the person and org lowercase
+            toLowerCase(personToPass, orgToPass);
+            // return searchResult;
+            return index->searchIndex(wordsToPass, personToPass, orgToPass);
+        }
+        orgToPass = orgCheck(stringStream, evalString);
+        
+        // make the person and org lowercase
+        toLowerCase(personToPass, orgToPass);
+        // return searchResult;
+        return index->searchIndex(wordsToPass, personToPass, orgToPass);
+
+    }
+    else{
+        // if the function has gotten to this point, that means "ORG:" was typed after the words.
+        // "PERSON:" was typed after the words
+        orgToPass = orgCheck(stringStream, evalString);
+        if(stringStream.eof()){
+            // make the person and org lowercase
+            toLowerCase(personToPass, orgToPass);
+            // return searchResult;
+            return index->searchIndex(wordsToPass, personToPass, orgToPass);
+        }
+        personToPass = personCheck(stringStream, evalString);
+        
+        // make the person and org lowercase
+        toLowerCase(personToPass, orgToPass);
+        // return searchResult;
+        return index->searchIndex(wordsToPass, personToPass, orgToPass);
+
+    }
+
+}
+
+string QueryEngine::stringSearch(string theQuery){
     // string stream for the Query
     istringstream stringStream(theQuery);
 
@@ -80,12 +142,10 @@ string QueryEngine::search(string theQuery){
 
 string QueryEngine::everythingAsString(set<string>& wordsToPass, string personToPass, string orgToPass){
     string allInfoAsString = "Words recieved in query: {";
+    // the word is already lowercased because it went through porter2stemmer which lowercases the word automatically.
+    
     for (const auto& word : wordsToPass){
-        string modifiedWord = word;
-        for (char& letter : modifiedWord){
-            letter = tolower(letter);
-        }
-        allInfoAsString += modifiedWord + ", ";
+        allInfoAsString += word + ", ";
     }
 
     // gets rid of the last ", "

@@ -126,6 +126,10 @@ class DSAvl_tree_ValuesMap{
         }
         return theString;
     }
+    size_t getValueOfDocUsingKey(const Comparable& theKey, Comparable2 theDoc){
+        map<Comparable2, size_t> theMap = getValuesAsMap(theKey);
+        return theMap[theDoc];
+    }
 
     /**
      * Returns a map of all values for a key

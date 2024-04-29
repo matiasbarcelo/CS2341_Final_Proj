@@ -4,6 +4,8 @@
 #include "IndexHandler.h"
 #include "stopwords/StopWords.h"
 #include <set>
+#include <vector>
+#include <utility>
 
 class QueryEngine{
     private:
@@ -16,7 +18,8 @@ class QueryEngine{
         string personCheck(istringstream& stringStream, string& evalString);
         string orgCheck(istringstream& stringStream, string& evalString);
         string everythingAsString(set<string>& wordsToPass, string personToPass = "", string orgToPass = "");
-        string search(string theQuery);
+        string stringSearch(string theQuery);
+        vector<pair<size_t,string>> superSearch(string theQuery);
         void toLowerCase(string& person, string& org);
 
 };
