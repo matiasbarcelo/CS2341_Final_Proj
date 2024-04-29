@@ -23,4 +23,7 @@ TEST_CASE("Checks that SearchEngine works", "[SearchEngine]"){
 
     theSearchEngine.displayText("0");
     theSearchEngine.displayText("1");
+
+    theSearchEngine.superSearch("PERSON:JEROME POWELL");
+    theSearchEngine.displayResults();
 }

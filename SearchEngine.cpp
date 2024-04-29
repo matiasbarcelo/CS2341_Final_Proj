@@ -16,7 +16,7 @@ using namespace std;
 SearchEngine::SearchEngine(string fileDirectory){
     fileDir = fileDirectory;
     index = new IndexHandler();
-    theDocParser = new DocParser(fileDir, *index);
+    theDocParser = new DocParser(*index);
     theQueryEngine = new QueryEngine(*index);
     resultsStart = 0;
     resultsLim = 14;
@@ -33,6 +33,11 @@ void SearchEngine::superSearch(string theQuery){
 }
 
 void SearchEngine::displayResults(){
+    if(searchResult.empty()){
+        cout << "No results!" << endl;
+        return;
+    }
+
     int tempResultLim = resultsLim;
     if(searchResult.size() - 1 < resultsLim){
         resultsLim = searchResult.size() - 1;
@@ -48,9 +53,9 @@ void SearchEngine::displayResults(){
         cout << to_string(i) << ": " << endl;
         cout << "SuperSearch Score: " << to_string(searchResult.at(i).first) << endl;
         
-        cout << d["title"].GetString() << endl;
-        cout << d["thread"]["site_full"].GetString() << endl;
-        cout << d["published"].GetString() << endl << endl;
+        cout << "Title: " << d["title"].GetString() << endl;
+        cout << "Publication: " << d["thread"]["site_full"].GetString() << endl;
+        cout << "Date published: " << d["published"].GetString() << endl << endl;
     }
     resultsLim = tempResultLim;
 }
@@ -62,4 +67,8 @@ void SearchEngine::displayText(string theNum){
     Document d;
     d.ParseStream(isw);
     cout << d["text"].GetString() << endl << endl;
+}
+
+bool SearchEngine::hasSearchResults(){
+    return !searchResult.empty();
 }

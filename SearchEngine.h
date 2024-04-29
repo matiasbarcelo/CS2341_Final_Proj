@@ -27,6 +27,7 @@ class SearchEngine{
         void displayText(string theNum);
         void nextPage();
         void previousPage();
+        bool hasSearchResults();
 };
 
 #endif

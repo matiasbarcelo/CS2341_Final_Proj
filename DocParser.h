@@ -9,9 +9,10 @@ class DocParser{
     private:
         IndexHandler* index;
         string fileDir;
+        bool persistenceFiles;
     public:
         StopWords* theStopWords;
-        DocParser(string theFileDir, IndexHandler& theIndex);
+        DocParser(IndexHandler& theIndex, bool hasPersistenceFiles=true, string theFileDir = "");
         ~DocParser();
         void setupStopWords();
         void parseStopWordsCSV();
@@ -23,6 +24,7 @@ class DocParser{
         void parseWords();
         void parsePeople();
         void parseOrgs();
+        void parsePersistenceFiles();
 };
 
 #endif

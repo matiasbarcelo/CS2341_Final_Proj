@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <filesystem>
+#include <map>
 
 #include "porter2_stemmer/porter2_stemmer.h"
 #include "rapidjson/istreamwrapper.h"
@@ -11,11 +12,18 @@
 
 using namespace std;
 
-DocParser::DocParser(string theFileDir, IndexHandler& theIndex){
+DocParser::DocParser(IndexHandler& theIndex, bool hasPersistenceFiles, string theFileDir){
     index = &theIndex;
     fileDir = theFileDir;
     theStopWords = new StopWords();
-    parse();
+    persistenceFiles = hasPersistenceFiles;
+    if(!hasPersistenceFiles){
+        parse();
+    }
+    else{
+        parsePersistenceFiles();
+    }
+
 }
 
 DocParser::~DocParser(){
@@ -128,4 +136,114 @@ void DocParser::parseOrgs(){
             index->addOrg(orgString, fileString);
         }
     }
+}
+
+void DocParser::parsePersistenceFiles(){
+    
+    // currentLine for all the files because I can't redeclare it
+    string currentLine;
+
+    // this does persistance for the words tree
+    fstream file;
+    file.open("../persistance_files/word_tree.txt");
+    if(!file.is_open()){
+        throw runtime_error("Could not open word_tree.txt file");
+    }
+    
+    while(getline(file, currentLine)){
+        // creates a variable for the word
+        string theWord;
+        // the map that is going to be passed into Avltree with map value
+        map<string, size_t> valuesMap;
+
+        // finds the word
+        size_t colonPos = currentLine.find(":");
+        theWord = currentLine.substr(0, colonPos);
+        
+        // finds the values
+        size_t curlyBracketStartPos = currentLine.find("{");
+        size_t curlyBracketEndPos = currentLine.find("}");
+        string theValues = currentLine.substr(curlyBracketStartPos + 1, curlyBracketEndPos - curlyBracketStartPos - 1);
+
+        // creates a string stream for the values
+        istringstream stringStream(theValues);
+        string theValuePair;
+        while(getline(stringStream, theValuePair, ',')){
+            size_t colonPos2 = theValuePair.find(":");
+            string theDoc = theValuePair.substr(1, colonPos2 - 1);
+            string theNum = theValuePair.substr(colonPos2 + 2);
+            theNum.pop_back();
+            size_t numAsNum = stoi(theNum);
+            // this happens because there are spaces between the docs
+            if(theDoc.at(0) == '('){
+                theDoc.erase(theDoc.begin());
+            }
+            valuesMap[theDoc] = numAsNum;
+        }
+        index->addWordWithMap(theWord, valuesMap);
+    }
+    file.close();
+
+    // this does persistance for people tree
+    file.open("../persistance_files/people_tree.txt");
+    if(!file.is_open()){
+        throw runtime_error("Could not open people_tree.txt file");
+    }
+
+    while(getline(file, currentLine)){
+        // creates a variable for the word
+        string thePerson;
+
+        // finds the word
+        size_t colonPos = currentLine.find(":");
+        thePerson = currentLine.substr(0, colonPos);
+        
+        // finds the values
+        size_t curlyBracketStartPos = currentLine.find("{");
+        size_t curlyBracketEndPos = currentLine.find("}");
+        string theValues = currentLine.substr(curlyBracketStartPos + 1, curlyBracketEndPos - curlyBracketStartPos - 1);
+
+        // creates a string stream for the values
+        istringstream stringStream(theValues);
+        string theValue;
+        while(getline(stringStream, theValue, ',')){
+            // this happens because there are spaces between the docs
+            if(theValue.at(0) == ' '){
+                theValue.erase(theValue.begin());
+            }
+            index->addPerson(thePerson, theValue);
+        }
+    }
+    file.close();
+
+    // this does persistance for orgs tree
+    file.open("../persistance_files/orgs_tree.txt");
+    if(!file.is_open()){
+        throw runtime_error("Could not open people_tree.txt file");
+    }
+    while(getline(file, currentLine)){
+        // creates a variable for the word
+        string theOrg;
+
+        // finds the word
+        size_t colonPos = currentLine.find(":");
+        theOrg = currentLine.substr(0, colonPos);
+        
+        // finds the values
+        size_t curlyBracketStartPos = currentLine.find("{");
+        size_t curlyBracketEndPos = currentLine.find("}");
+        string theValues = currentLine.substr(curlyBracketStartPos + 1, curlyBracketEndPos - curlyBracketStartPos - 1);
+
+        // creates a string stream for the values
+        istringstream stringStream(theValues);
+        string theValue;
+        while(getline(stringStream, theValue, ',')){
+            if(theValue.at(0) == ' '){
+                theValue.erase(theValue.begin());
+            }
+            index->addOrg(theOrg, theValue);
+        }
+    }
+    file.close();
+
 }

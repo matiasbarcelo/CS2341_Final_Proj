@@ -5,6 +5,7 @@
 #include <set>
 #include <algorithm>
 #include <utility>
+#include <fstream>
 // #include "rapidjson/istreamwrapper.h"
 // #include "rapidjson/document.h"
 using namespace std;
@@ -24,6 +25,11 @@ IndexHandler::~IndexHandler(){
 void IndexHandler::addWord(string theWord, string file_id){
     words->insertValue(theWord, file_id);
 }
+
+void IndexHandler::addWordWithMap(string& theWord, map<string, size_t>& aMap){
+    words->insertValuesWithGivenMap(theWord, aMap);
+}
+
 
 void IndexHandler::addPerson(string person, string file_id){
     people->insertValue(person, file_id);
@@ -59,6 +65,22 @@ string IndexHandler::orgsTreeAsString(){
 
 string IndexHandler::peopleTreeAsString(){
     return people->getKeysAndValuesAsString();
+}
+
+void IndexHandler::persistTrees(){
+    ofstream fileHandler;
+    
+    fileHandler.open("../persistance_files/word_tree.txt");
+    fileHandler << words->getKeysAndValuesMapAsString(false);
+    fileHandler.close();
+
+    fileHandler.open("../persistance_files/people_tree.txt");
+    fileHandler << people->getKeysAndValuesAsString(false);
+    fileHandler.close();
+
+    fileHandler.open("../persistance_files/orgs_tree.txt");
+    fileHandler << orgs->getKeysAndValuesAsString(false);
+    fileHandler.close();
 }
 
 vector<pair<size_t,string>> IndexHandler::searchIndex(set<string> wordsSet, string person, string org){

@@ -1,0 +1,9 @@
+carolyn julie fairbairn: {sample_data/coll_1/news_0064567.json}
+eaton vance: {sample_data/coll_2/news_0064570.json}
+eric schweitzer: {sample_data/coll_1/news_0064567.json}
+francesca: {sample_data/coll_2/news_0064572.json}
+jerome powell: {sample_data/coll_1/news_0064569.json}
+joachim lang: {sample_data/coll_1/news_0064567.json}
+powell: {sample_data/coll_1/news_0064569.json}
+schweitzer: {sample_data/coll_1/news_0064567.json}
+strax ab: {sample_data/coll_1/news_0064568.json}

@@ -31,6 +31,11 @@ class DSAvl_tree_ValuesMap{
             : key{theKey}, left{lt}, right{rt}, height{h} {
                 values.insert({mapKey, size_t(1)});
             }
+
+            AvlNode(const Comparable &theKey, map<Comparable2, size_t>& aMap, AvlNode *lt, AvlNode *rt, int h)
+            : key{theKey}, left{lt}, right{rt}, height{h} {
+                values = aMap;
+            }
         };
 
         AvlNode* root;
@@ -185,18 +190,26 @@ class DSAvl_tree_ValuesMap{
     /**
      * Gets keys and values as a string
     */
-    string getKeysAndValuesMapAsString(){  
+    string getKeysAndValuesMapAsString(bool longString = true){  
         set<Comparable> theKeys = getKeysAsSet();
         string theString = "";
         
         for (const auto& key: theKeys){
             theString += key + ": {";
             theString += getValuesMapAsString(key);
-            theString += "}, ";
+            theString += "}";
+            if(!longString){
+                theString += "\n";
+            }
+            else{
+                theString += ", ";
+            }
         }
         // removes the last space and comma added the last iteration
-        theString.pop_back();
-        theString.pop_back();
+        if(longString){
+            theString.pop_back();
+            theString.pop_back();
+        }
         return theString;
     }
 
@@ -222,6 +235,11 @@ class DSAvl_tree_ValuesMap{
    void insertValue(const Comparable &x, Comparable2 &y)
    {
         insertValue(x, y, root);
+   }
+
+   void insertValuesWithGivenMap(const Comparable &x, map<string, size_t>& aMap)
+   {
+        insertValuesWithGivenMap(x, aMap, root);
    }
 
     /**
@@ -288,6 +306,23 @@ private:
             insertValue(x, y, t->left);
         else
             insertValue(x, y, t->right);
+
+        balance(t);
+    }
+
+    void insertValuesWithGivenMap(const Comparable &x, map<string, size_t>& aMap, AvlNode *&t){
+        if (t == nullptr){
+            t = new AvlNode{x, aMap, nullptr, nullptr, 0};
+            return;
+        }
+
+        if (x == t->key){
+            t->values = aMap;
+        }
+        else if (x < t->key)
+            insertValuesWithGivenMap(x, aMap, t->left);
+        else
+            insertValuesWithGivenMap(x, aMap, t->right);
 
         balance(t);
     }

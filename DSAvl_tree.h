@@ -160,18 +160,26 @@ class DSAvl_tree{
     /**
      * Gets keys and values as a string
     */
-    string getKeysAndValuesAsString(){  
+    string getKeysAndValuesAsString(bool longString = true){  
         set<Comparable> theKeys = getKeysAsSet();
         string theString = "";
         
         for (const auto& key: theKeys){
             theString += key + ": {";
             theString += getValuesAsString(key);
-            theString += "}, ";
+            theString += "}";
+            if(!longString){
+                theString += "\n";
+            }
+            else{
+                theString += ", ";
+            }
         }
         // removes the last space and comma added the last iteration
-        theString.pop_back();
-        theString.pop_back();
+        if(longString){
+            theString.pop_back();
+            theString.pop_back();
+        }
         return theString;
     }
 

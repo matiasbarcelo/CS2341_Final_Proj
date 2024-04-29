@@ -16,10 +16,10 @@ class IndexHandler{
 
     public:
         IndexHandler();
-        IndexHandler(string percistanceFileDir);
         ~IndexHandler();
 
         void addWord(string theWord, string file_id);
+        void addWordWithMap(string& theWord, map<string, size_t>& aMap);
         void addPerson(string person, string file_id);
         void addOrg(string org, string file_id);
         bool wordsIsEmpty();
@@ -29,6 +29,7 @@ class IndexHandler{
         string wordsKeysAsString();
         string peopleTreeAsString();
         string orgsTreeAsString();
+        void persistTrees();
 
         vector<pair<size_t,string>> searchIndex(set<string> wordsSet, string person = "", string org = "");
  };

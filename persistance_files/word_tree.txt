@@ -1,0 +1,333 @@
+ab: {(sample_data/coll_1/news_0064568.json: 1)}
+account: {(sample_data/coll_2/news_0064570.json: 1)}
+actual: {(sample_data/coll_2/news_0064570.json: 1)}
+ad: {(sample_data/coll_1/news_0064567.json: 2)}
+addit: {(sample_data/coll_1/news_0064567.json: 1)}
+alreadi: {(sample_data/coll_1/news_0064567.json: 1)}
+amount: {(sample_data/coll_1/news_0064568.json: 2), (sample_data/coll_2/news_0064570.json: 16)}
+andor: {(sample_data/coll_2/news_0064570.json: 1)}
+ani: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 1)}
+annual: {(sample_data/coll_2/news_0064570.json: 23)}
+appeal: {(sample_data/coll_1/news_0064567.json: 1)}
+approv: {(sample_data/coll_2/news_0064570.json: 1)}
+approxim: {(sample_data/coll_2/news_0064572.json: 1)}
+arriv: {(sample_data/coll_1/news_0064567.json: 1)}
+asset: {(sample_data/coll_2/news_0064570.json: 1)}
+assum: {(sample_data/coll_2/news_0064570.json: 1)}
+attribut: {(sample_data/coll_1/news_0064567.json: 1)}
+august: {(sample_data/coll_2/news_0064570.json: 1)}
+averag: {(sample_data/coll_2/news_0064570.json: 11)}
+bare: {(sample_data/coll_1/news_0064567.json: 1)}
+base: {(sample_data/coll_2/news_0064570.json: 2), (sample_data/coll_2/news_0064572.json: 1)}
+bdi: {(sample_data/coll_1/news_0064567.json: 2)}
+befor: {(sample_data/coll_1/news_0064567.json: 1)}
+berlin: {(sample_data/coll_1/news_0064567.json: 1)}
+bilater: {(sample_data/coll_1/news_0064567.json: 1)}
+bind: {(sample_data/coll_1/news_0064567.json: 1)}
+bloc: {(sample_data/coll_1/news_0064567.json: 1)}
+board: {(sample_data/coll_2/news_0064570.json: 1)}
+boston: {(sample_data/coll_2/news_0064570.json: 1)}
+boutiqu: {(sample_data/coll_2/news_0064572.json: 1)}
+brexit: {(sample_data/coll_1/news_0064567.json: 5)}
+britain: {(sample_data/coll_1/news_0064567.json: 6)}
+british: {(sample_data/coll_1/news_0064567.json: 4)}
+bureaucraci: {(sample_data/coll_1/news_0064567.json: 1)}
+busi: {(sample_data/coll_1/news_0064567.json: 6)}
+buywrit: {(sample_data/coll_2/news_0064570.json: 3)}
+calcul: {(sample_data/coll_1/news_0064567.json: 1)}
+calendar: {(sample_data/coll_2/news_0064570.json: 2)}
+call: {(sample_data/coll_1/news_0064567.json: 1)}
+capit: {(sample_data/coll_2/news_0064570.json: 44)}
+carolyn: {(sample_data/coll_1/news_0064567.json: 2)}
+carrefour: {(sample_data/coll_1/news_0064569.json: 1)}
+carrel: {(sample_data/coll_1/news_0064567.json: 1)}
+cash: {(sample_data/coll_2/news_0064570.json: 1)}
+chairman: {(sample_data/coll_1/news_0064569.json: 1)}
+chamber: {(sample_data/coll_1/news_0064567.json: 1)}
+chang: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 4)}
+charact: {(sample_data/coll_2/news_0064570.json: 1)}
+clariti: {(sample_data/coll_1/news_0064567.json: 1)}
+closedend: {(sample_data/coll_2/news_0064570.json: 1)}
+comment: {(sample_data/coll_1/news_0064569.json: 2)}
+commerc: {(sample_data/coll_1/news_0064567.json: 1)}
+commiss: {(sample_data/coll_2/news_0064570.json: 1)}
+commit: {(sample_data/coll_1/news_0064569.json: 1)}
+common: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 22)}
+compani: {(sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 2)}
+compar: {(sample_data/coll_2/news_0064572.json: 1)}
+conclus: {(sample_data/coll_2/news_0064570.json: 1)}
+condit: {(sample_data/coll_2/news_0064570.json: 1)}
+confeder: {(sample_data/coll_1/news_0064567.json: 2)}
+confus: {(sample_data/coll_2/news_0064570.json: 1)}
+consequ: {(sample_data/coll_1/news_0064567.json: 2)}
+content: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 1)}
+corp: {(sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 1)}
+cost: {(sample_data/coll_1/news_0064567.json: 1)}
+countri: {(sample_data/coll_1/news_0064567.json: 2)}
+coverag: {(sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 1)}
+cumul: {(sample_data/coll_2/news_0064570.json: 44)}
+current: {(sample_data/coll_2/news_0064570.json: 31)}
+custom: {(sample_data/coll_1/news_0064567.json: 3)}
+damocl: {(sample_data/coll_1/news_0064567.json: 1)}
+date: {(sample_data/coll_2/news_0064570.json: 10)}
+deal: {(sample_data/coll_1/news_0064567.json: 1)}
+decemb: {(sample_data/coll_1/news_0064568.json: 2), (sample_data/coll_2/news_0064570.json: 5)}
+declin: {(sample_data/coll_2/news_0064572.json: 1)}
+decreas: {(sample_data/coll_2/news_0064572.json: 1)}
+departur: {(sample_data/coll_1/news_0064567.json: 1)}
+depend: {(sample_data/coll_2/news_0064570.json: 1)}
+deterior: {(sample_data/coll_1/news_0064567.json: 1)}
+determin: {(sample_data/coll_2/news_0064570.json: 1)}
+dihk: {(sample_data/coll_1/news_0064567.json: 2)}
+director: {(sample_data/coll_1/news_0064567.json: 2)}
+directorgener: {(sample_data/coll_1/news_0064567.json: 2)}
+disclosur: {(sample_data/coll_2/news_0064570.json: 1)}
+distribut: {(sample_data/coll_2/news_0064570.json: 111)}
+div: {(sample_data/coll_2/news_0064570.json: 1)}
+diversifi: {(sample_data/coll_2/news_0064570.json: 3)}
+dividend: {(sample_data/coll_2/news_0064570.json: 2)}
+doe: {(sample_data/coll_2/news_0064570.json: 1)}
+dollar: {(sample_data/coll_2/news_0064570.json: 1)}
+draw: {(sample_data/coll_2/news_0064570.json: 1)}
+due: {(sample_data/coll_1/news_0064567.json: 2)}
+dure: {(sample_data/coll_2/news_0064570.json: 1)}
+earn: {(sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 3)}
+eaton: {(sample_data/coll_2/news_0064570.json: 12)}
+econom: {(sample_data/coll_1/news_0064567.json: 1)}
+edit: {(sample_data/coll_1/news_0064567.json: 1)}
+effect: {(sample_data/coll_2/news_0064572.json: 1)}
+eikon: {(sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 1)}
+elsewher: {(sample_data/coll_1/news_0064567.json: 1)}
+emerg: {(sample_data/coll_1/news_0064567.json: 1)}
+enhanc: {(sample_data/coll_2/news_0064570.json: 2)}
+ensur: {(sample_data/coll_1/news_0064567.json: 1)}
+eo: {(sample_data/coll_2/news_0064570.json: 1)}
+eoi: {(sample_data/coll_2/news_0064570.json: 1)}
+equiti: {(sample_data/coll_1/news_0064569.json: 1), (sample_data/coll_2/news_0064570.json: 5)}
+eric: {(sample_data/coll_1/news_0064567.json: 1)}
+estim: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 5), (sample_data/coll_2/news_0064572.json: 1)}
+etb: {(sample_data/coll_2/news_0064570.json: 1)}
+eti: {(sample_data/coll_2/news_0064570.json: 1)}
+etj: {(sample_data/coll_2/news_0064570.json: 1)}
+eto: {(sample_data/coll_2/news_0064570.json: 1)}
+etv: {(sample_data/coll_2/news_0064570.json: 1)}
+etw: {(sample_data/coll_2/news_0064570.json: 1)}
+eu: {(sample_data/coll_1/news_0064567.json: 4)}
+eur: {(sample_data/coll_1/news_0064568.json: 1)}
+european: {(sample_data/coll_1/news_0064569.json: 2)}
+evt: {(sample_data/coll_2/news_0064570.json: 1)}
+exact: {(sample_data/coll_1/news_0064567.json: 1)}
+exampl: {(sample_data/coll_2/news_0064570.json: 1)}
+exchang: {(sample_data/coll_2/news_0064570.json: 1)}
+exempt: {(sample_data/coll_2/news_0064570.json: 1)}
+exg: {(sample_data/coll_2/news_0064570.json: 1)}
+expect: {(sample_data/coll_1/news_0064567.json: 3), (sample_data/coll_2/news_0064572.json: 2)}
+experi: {(sample_data/coll_2/news_0064570.json: 1)}
+express: {(sample_data/coll_2/news_0064570.json: 10)}
+extent: {(sample_data/coll_1/news_0064567.json: 1)}
+extern: {(sample_data/coll_1/news_0064567.json: 1)}
+factor: {(sample_data/coll_2/news_0064570.json: 1)}
+fairbairn: {(sample_data/coll_1/news_0064567.json: 2)}
+feb: {(sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064570.json: 1), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 1)}
+februari: {(sample_data/coll_2/news_0064570.json: 14)}
+fed: {(sample_data/coll_1/news_0064569.json: 1)}
+feder: {(sample_data/coll_2/news_0064570.json: 1)}
+fifti: {(sample_data/coll_1/news_0064567.json: 1)}
+file: {(sample_data/coll_1/news_0064567.json: 2)}
+firm: {(sample_data/coll_1/news_0064567.json: 3)}
+fiscal: {(sample_data/coll_2/news_0064570.json: 55), (sample_data/coll_2/news_0064572.json: 3)}
+fix: {(sample_data/coll_2/news_0064570.json: 1)}
+follow: {(sample_data/coll_1/news_0064569.json: 1), (sample_data/coll_2/news_0064570.json: 1)}
+form: {(sample_data/coll_2/news_0064570.json: 1)}
+fourth: {(sample_data/coll_2/news_0064572.json: 1)}
+fox: {(sample_data/coll_1/news_0064567.json: 1)}
+francesca: {(sample_data/coll_2/news_0064572.json: 2)}
+frequenc: {(sample_data/coll_2/news_0064570.json: 10)}
+fund: {(sample_data/coll_2/news_0064570.json: 28)}
+futur: {(sample_data/coll_1/news_0064567.json: 1)}
+fy: {(sample_data/coll_2/news_0064572.json: 1)}
+gaap: {(sample_data/coll_2/news_0064572.json: 2)}
+gain: {(sample_data/coll_2/news_0064570.json: 21)}
+german: {(sample_data/coll_1/news_0064567.json: 4)}
+germani: {(sample_data/coll_1/news_0064567.json: 3)}
+global: {(sample_data/coll_2/news_0064570.json: 3)}
+govern: {(sample_data/coll_1/news_0064567.json: 2)}
+gradual: {(sample_data/coll_1/news_0064569.json: 1)}
+group: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_1/news_0064568.json: 2)}
+hang: {(sample_data/coll_1/news_0064567.json: 1)}
+hold: {(sample_data/coll_2/news_0064572.json: 1)}
+hour: {(sample_data/coll_1/news_0064569.json: 1)}
+httpwwwprnewswirecomnewsreleaseseat: {(sample_data/coll_2/news_0064570.json: 1)}
+hugh: {(sample_data/coll_1/news_0064567.json: 1)}
+ibe: {(sample_data/coll_2/news_0064572.json: 1)}
+ii: {(sample_data/coll_2/news_0064570.json: 1)}
+implement: {(sample_data/coll_2/news_0064570.json: 1)}
+import: {(sample_data/coll_2/news_0064570.json: 1)}
+improv: {(sample_data/coll_1/news_0064567.json: 1)}
+includ: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 1)}
+incom: {(sample_data/coll_2/news_0064570.json: 20)}
+increas: {(sample_data/coll_1/news_0064569.json: 1)}
+industri: {(sample_data/coll_1/news_0064567.json: 3)}
+inform: {(sample_data/coll_2/news_0064570.json: 3)}
+interest: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_1/news_0064569.json: 1)}
+intern: {(sample_data/coll_1/news_0064567.json: 1)}
+introduc: {(sample_data/coll_2/news_0064572.json: 1)}
+invest: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 14)}
+involv: {(sample_data/coll_1/news_0064567.json: 1)}
+issu: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 1)}
+januari: {(sample_data/coll_1/news_0064568.json: 2), (sample_data/coll_2/news_0064570.json: 45)}
+jerom: {(sample_data/coll_1/news_0064569.json: 1)}
+joachim: {(sample_data/coll_1/news_0064567.json: 2)}
+juli: {(sample_data/coll_1/news_0064567.json: 2)}
+kewaune: {(sample_data/coll_2/news_0064571.json: 2)}
+key: {(sample_data/coll_1/news_0064567.json: 1)}
+lang: {(sample_data/coll_1/news_0064567.json: 2)}
+lawson: {(sample_data/coll_1/news_0064567.json: 1)}
+layer: {(sample_data/coll_1/news_0064567.json: 1)}
+leader: {(sample_data/coll_1/news_0064567.json: 2)}
+leav: {(sample_data/coll_1/news_0064567.json: 1)}
+legisl: {(sample_data/coll_2/news_0064572.json: 1)}
+levi: {(sample_data/coll_1/news_0064567.json: 1)}
+liam: {(sample_data/coll_1/news_0064567.json: 1)}
+list: {(sample_data/coll_2/news_0064570.json: 1)}
+london: {(sample_data/coll_1/news_0064567.json: 2)}
+longterm: {(sample_data/coll_2/news_0064570.json: 10)}
+main: {(sample_data/coll_1/news_0064567.json: 1)}
+manag: {(sample_data/coll_1/news_0064567.json: 2), (sample_data/coll_2/news_0064570.json: 2)}
+mani: {(sample_data/coll_1/news_0064567.json: 1)}
+market: {(sample_data/coll_1/news_0064567.json: 2), (sample_data/coll_2/news_0064570.json: 1)}
+measur: {(sample_data/coll_2/news_0064570.json: 1)}
+member: {(sample_data/coll_1/news_0064567.json: 1)}
+menac: {(sample_data/coll_1/news_0064567.json: 1)}
+meur: {(sample_data/coll_1/news_0064568.json: 1)}
+million: {(sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 3)}
+minist: {(sample_data/coll_1/news_0064567.json: 1)}
+money: {(sample_data/coll_2/news_0064570.json: 1)}
+month: {(sample_data/coll_2/news_0064570.json: 11)}
+morn: {(sample_data/coll_1/news_0064569.json: 1)}
+move: {(sample_data/coll_1/news_0064567.json: 2)}
+nation: {(sample_data/coll_1/news_0064567.json: 1)}
+nav: {(sample_data/coll_2/news_0064570.json: 47)}
+necessarili: {(sample_data/coll_2/news_0064570.json: 1)}
+net: {(sample_data/coll_2/news_0064570.json: 32), (sample_data/coll_2/news_0064572.json: 2)}
+nichollsfil: {(sample_data/coll_1/news_0064567.json: 2)}
+note: {(sample_data/coll_2/news_0064570.json: 2)}
+notic: {(sample_data/coll_2/news_0064570.json: 1)}
+novemb: {(sample_data/coll_1/news_0064567.json: 2)}
+nyse: {(sample_data/coll_2/news_0064570.json: 10)}
+occur: {(sample_data/coll_2/news_0064570.json: 1)}
+octob: {(sample_data/coll_2/news_0064570.json: 3)}
+onli: {(sample_data/coll_2/news_0064570.json: 2)}
+open: {(sample_data/coll_1/news_0064569.json: 2), (sample_data/coll_2/news_0064572.json: 1)}
+oper: {(sample_data/coll_1/news_0064567.json: 3)}
+opportun: {(sample_data/coll_2/news_0064570.json: 3)}
+order: {(sample_data/coll_2/news_0064570.json: 1)}
+origin: {(sample_data/coll_2/news_0064570.json: 1)}
+outsid: {(sample_data/coll_1/news_0064567.json: 1)}
+paid: {(sample_data/coll_2/news_0064570.json: 3)}
+parti: {(sample_data/coll_1/news_0064567.json: 1)}
+paul: {(sample_data/coll_1/news_0064567.json: 1)}
+perceiv: {(sample_data/coll_1/news_0064567.json: 1)}
+percent: {(sample_data/coll_1/news_0064567.json: 4), (sample_data/coll_2/news_0064571.json: 1)}
+percentag: {(sample_data/coll_2/news_0064570.json: 23)}
+perform: {(sample_data/coll_2/news_0064570.json: 3)}
+period: {(sample_data/coll_1/news_0064568.json: 2), (sample_data/coll_2/news_0064570.json: 25)}
+pessimist: {(sample_data/coll_1/news_0064567.json: 1)}
+photo: {(sample_data/coll_1/news_0064567.json: 4)}
+pictur: {(sample_data/coll_1/news_0064567.json: 1)}
+plan: {(sample_data/coll_1/news_0064567.json: 2), (sample_data/coll_2/news_0064570.json: 4)}
+point: {(sample_data/coll_1/news_0064567.json: 1)}
+polit: {(sample_data/coll_1/news_0064567.json: 1)}
+portion: {(sample_data/coll_2/news_0064570.json: 1)}
+pose: {(sample_data/coll_1/news_0064567.json: 1)}
+posit: {(sample_data/coll_1/news_0064567.json: 1)}
+possibl: {(sample_data/coll_1/news_0064567.json: 1)}
+postbrexit: {(sample_data/coll_1/news_0064567.json: 1)}
+powel: {(sample_data/coll_1/news_0064569.json: 2)}
+presid: {(sample_data/coll_1/news_0064567.json: 1)}
+press: {(sample_data/coll_2/news_0064570.json: 1)}
+prnewswir: {(sample_data/coll_2/news_0064570.json: 1)}
+prospect: {(sample_data/coll_1/news_0064567.json: 3)}
+provid: {(sample_data/coll_2/news_0064570.json: 1), (sample_data/coll_2/news_0064572.json: 1)}
+purpos: {(sample_data/coll_2/news_0064570.json: 4)}
+quarter: {(sample_data/coll_2/news_0064570.json: 1), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 1)}
+rate: {(sample_data/coll_1/news_0064569.json: 1), (sample_data/coll_2/news_0064570.json: 23), (sample_data/coll_2/news_0064572.json: 2)}
+reaffirm: {(sample_data/coll_2/news_0064572.json: 1)}
+realiz: {(sample_data/coll_2/news_0064570.json: 21)}
+receiv: {(sample_data/coll_2/news_0064570.json: 1)}
+refer: {(sample_data/coll_1/news_0064567.json: 1)}
+reflect: {(sample_data/coll_2/news_0064570.json: 1)}
+regul: {(sample_data/coll_2/news_0064570.json: 1)}
+regular: {(sample_data/coll_2/news_0064570.json: 1)}
+reinvest: {(sample_data/coll_2/news_0064570.json: 2)}
+relat: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 1)}
+relationship: {(sample_data/coll_1/news_0064567.json: 1)}
+releas: {(sample_data/coll_2/news_0064570.json: 2)}
+remain: {(sample_data/coll_1/news_0064567.json: 1)}
+remaind: {(sample_data/coll_2/news_0064570.json: 1)}
+report: {(sample_data/coll_1/news_0064569.json: 1), (sample_data/coll_2/news_0064570.json: 4), (sample_data/coll_2/news_0064571.json: 1)}
+repres: {(sample_data/coll_2/news_0064570.json: 1)}
+requir: {(sample_data/coll_2/news_0064570.json: 1)}
+respond: {(sample_data/coll_1/news_0064567.json: 1)}
+result: {(sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064570.json: 1), (sample_data/coll_2/news_0064571.json: 1)}
+return: {(sample_data/coll_2/news_0064570.json: 35)}
+reuter: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 2)}
+reuterspet: {(sample_data/coll_1/news_0064567.json: 2)}
+revenu: {(sample_data/coll_2/news_0064572.json: 1)}
+rise: {(sample_data/coll_1/news_0064567.json: 1)}
+risk: {(sample_data/coll_1/news_0064567.json: 2)}
+riskmanag: {(sample_data/coll_2/news_0064570.json: 1)}
+rose: {(sample_data/coll_2/news_0064571.json: 1)}
+sale: {(sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 4)}
+schweitzer: {(sample_data/coll_1/news_0064567.json: 3)}
+scientif: {(sample_data/coll_2/news_0064571.json: 2)}
+secur: {(sample_data/coll_2/news_0064570.json: 1)}
+sellout: {(sample_data/coll_1/news_0064567.json: 1)}
+send: {(sample_data/coll_2/news_0064570.json: 1)}
+septemb: {(sample_data/coll_2/news_0064570.json: 1)}
+set: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 1)}
+share: {(sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064570.json: 21), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 3)}
+sharehold: {(sample_data/coll_2/news_0064570.json: 2)}
+shortterm: {(sample_data/coll_2/news_0064570.json: 10)}
+show: {(sample_data/coll_1/news_0064567.json: 2)}
+solvay: {(sample_data/coll_1/news_0064569.json: 1)}
+sourc: {(sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064570.json: 26), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 1)}
+state: {(sample_data/coll_2/news_0064570.json: 1)}
+statement: {(sample_data/coll_1/news_0064567.json: 1)}
+stay: {(sample_data/coll_1/news_0064567.json: 1)}
+stock: {(sample_data/coll_1/news_0064569.json: 1)}
+strax: {(sample_data/coll_1/news_0064568.json: 1)}
+street: {(sample_data/coll_1/news_0064567.json: 2)}
+strengthen: {(sample_data/coll_1/news_0064567.json: 1)}
+subject: {(sample_data/coll_2/news_0064570.json: 2)}
+survey: {(sample_data/coll_1/news_0064567.json: 4)}
+swift: {(sample_data/coll_1/news_0064567.json: 1)}
+sword: {(sample_data/coll_1/news_0064567.json: 1)}
+tabl: {(sample_data/coll_2/news_0064570.json: 1)}
+tariff: {(sample_data/coll_1/news_0064567.json: 1)}
+tax: {(sample_data/coll_2/news_0064570.json: 5), (sample_data/coll_2/news_0064572.json: 3)}
+taxadvantag: {(sample_data/coll_2/news_0064570.json: 2)}
+taxmanag: {(sample_data/coll_2/news_0064570.json: 5)}
+term: {(sample_data/coll_2/news_0064570.json: 2)}
+text: {(sample_data/coll_1/news_0064568.json: 1), (sample_data/coll_2/news_0064571.json: 1), (sample_data/coll_2/news_0064572.json: 1)}
+therefor: {(sample_data/coll_2/news_0064570.json: 1)}
+thomson: {(sample_data/coll_2/news_0064572.json: 1)}
+today: {(sample_data/coll_2/news_0064570.json: 1)}
+total: {(sample_data/coll_2/news_0064570.json: 33)}
+trade: {(sample_data/coll_1/news_0064567.json: 3)}
+truste: {(sample_data/coll_2/news_0064570.json: 1)}
+tuesday: {(sample_data/coll_1/news_0064567.json: 2)}
+unclear: {(sample_data/coll_1/news_0064567.json: 1)}
+union: {(sample_data/coll_1/news_0064567.json: 2)}
+unsettl: {(sample_data/coll_1/news_0064567.json: 1)}
+updat: {(sample_data/coll_2/news_0064572.json: 1)}
+valu: {(sample_data/coll_2/news_0064570.json: 2)}
+vanc: {(sample_data/coll_2/news_0064570.json: 12)}
+view: {(sample_data/coll_2/news_0064570.json: 1), (sample_data/coll_2/news_0064572.json: 2)}
+warn: {(sample_data/coll_1/news_0064567.json: 1)}
+wednesday: {(sample_data/coll_1/news_0064569.json: 1)}
+wors: {(sample_data/coll_1/news_0064567.json: 1)}
+write: {(sample_data/coll_1/news_0064567.json: 1)}
+year: {(sample_data/coll_1/news_0064567.json: 1), (sample_data/coll_2/news_0064570.json: 48), (sample_data/coll_2/news_0064572.json: 2)}
+yeartod: {(sample_data/coll_2/news_0064570.json: 21)}
+yield: {(sample_data/coll_2/news_0064570.json: 1)}
