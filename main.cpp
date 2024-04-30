@@ -1,6 +1,7 @@
 #include <iostream>
 #include "SearchEngine.h"
 #include <filesystem>
+#include <chrono>
 // #include <chronos>
 
 using namespace std;
@@ -49,14 +50,29 @@ int main()
     SearchEngine* theSearchEngine;
 
     if(hasPersistence){
+        chrono::time_point<chrono::system_clock> hasPersistenceStart, hasPersistenceEnd;
+        hasPersistenceStart = chrono::system_clock::now();
+
         cout << "Persistence files found in persistance_files dir" << endl;
         cout << "Please keep in mind that persistence is automatic. ";
         cout << "If you have a new dir of data please delete old persistence files and run supersearch again" << endl;
         theSearchEngine = new SearchEngine();
+
+        hasPersistenceEnd = chrono::system_clock::now();
+        chrono::duration<double> persistenceTime = hasPersistenceEnd - hasPersistenceStart;
+        cout << "Peristence parse took " << setprecision(3) <<persistenceTime.count() << " seconds" << endl;
     }
     else{
         string fileDir = getFileDir();
+        chrono::time_point<chrono::system_clock> parseStart, parseEnd;
+        parseStart = chrono::system_clock::now();
+
         theSearchEngine = new SearchEngine(false, fileDir);
+        parseEnd = chrono::system_clock::now();
+
+        chrono::duration<double> parseTime = parseEnd - parseStart;
+        cout << "Document parse took " << setprecision(3) <<parseTime.count() << " seconds" << endl;
+
     }
 
     // shows some search engine stats
@@ -70,7 +86,18 @@ int main()
         cout << "Please type in search: ";
         getline(cin, response);
         try{
+            
+            chrono::time_point<chrono::system_clock> searchStart, searchEnd;
+            searchStart = chrono::system_clock::now();
+
             theSearchEngine->superSearch(response);
+
+            searchEnd = chrono::system_clock::now();
+            chrono::duration<double> searchTime = searchEnd - searchStart;
+            cout << "Search took " << setprecision(3) <<searchTime.count() << " seconds" << endl;
+
+
+
             theSearchEngine->displayResults();
             searchWentThrough = true;
             cout << "Type number of result to display article text (i.e. for the first article text type '0')." << 
