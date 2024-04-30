@@ -13,10 +13,16 @@
 using namespace rapidjson;
 using namespace std;
 
-SearchEngine::SearchEngine(string fileDirectory){
+SearchEngine::SearchEngine(bool hasPersistance, string fileDirectory){
     fileDir = fileDirectory;
     index = new IndexHandler();
-    theDocParser = new DocParser(*index);
+    if(hasPersistance){
+        theDocParser = new DocParser(*index);
+    }
+    else{
+        theDocParser = new DocParser(*index, false, fileDirectory);
+        index -> persistTrees();
+    }
     theQueryEngine = new QueryEngine(*index);
     resultsStart = 0;
     resultsLim = 14;
@@ -43,6 +49,9 @@ void SearchEngine::displayResults(){
         resultsLim = searchResult.size() - 1;
     }
 
+    
+    cout << "Number of results: " << to_string(searchResult.size()) << endl << endl;
+
     for(int i = resultsStart; i <= resultsLim; i++){
         ifstream input(searchResult.at(i).second);
         IStreamWrapper isw(input);
@@ -50,7 +59,7 @@ void SearchEngine::displayResults(){
         d.ParseStream(isw);
         // need article title, publciation, and date published
         // in the json file that should be "title", "site", and "published"
-        cout << to_string(i) << ": " << endl;
+        cout << "Result #" << to_string(i) << ": " << endl;
         cout << "SuperSearch Score: " << to_string(searchResult.at(i).first) << endl;
         
         cout << "Title: " << d["title"].GetString() << endl;
@@ -66,9 +75,27 @@ void SearchEngine::displayText(string theNum){
     IStreamWrapper isw(input);
     Document d;
     d.ParseStream(isw);
-    cout << d["text"].GetString() << endl << endl;
+    cout << endl << d["text"].GetString() << endl << endl;
 }
 
 bool SearchEngine::hasSearchResults(){
     return !searchResult.empty();
+}
+
+void SearchEngine::next(){
+    if(searchResult.size() < resultsLim + 1){
+        cout << "Cannot display more results!" << endl;
+        return;
+    }
+    resultsStart = resultsLim + 1;
+    resultsLim = resultsLim + 15;
+}
+
+void SearchEngine::prev(){
+    if(resultsStart - 15 < 0){
+        cout << "Cannot display less results!" << endl;
+        return;
+    }
+    resultsLim = (resultsStart + 14) - 15;
+    resultsStart = resultsStart - 15;
 }

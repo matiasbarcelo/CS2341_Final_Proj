@@ -40,6 +40,9 @@ void DocParser::parse(){
 }
 
 void DocParser::parseWords(){
+    if(!filesystem::exists(fileDir)){
+        throw runtime_error("File directory given does not exist");
+    }
     auto dir = filesystem::recursive_directory_iterator(fileDir);
 
     for(const auto& file : dir){

@@ -18,9 +18,10 @@ class SearchEngine{
         string fileDir;
         int resultsStart;
         int resultsLim;
+        bool persistence;
     
     public:
-        SearchEngine(string fileDirectory);
+        SearchEngine(bool hasPersistance = true, string fileDirectory = "");
         ~SearchEngine();
         void superSearch(string theQuery);
         void displayResults();
@@ -28,6 +29,8 @@ class SearchEngine{
         void nextPage();
         void previousPage();
         bool hasSearchResults();
+        void next();
+        void prev();
 };
 
 #endif
