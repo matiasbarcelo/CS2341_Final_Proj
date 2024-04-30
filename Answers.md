@@ -7,7 +7,7 @@ Matias Barcelo Treiyer
 
 
 
-Used free extension: [ ] 24 hrs or [ ] 48 hrs
+Used free extension: [x] 24 hrs or [ ] 48 hrs
 
 [ ] Early submission (48 hrs)
 
@@ -20,15 +20,9 @@ Place [x] for what applies.
 
 ### Project Management
 
-Complete the tasks and planned completion columns **BEFORE** You start with 
-coding!
-
-
-Weekly milestones/tasks. Set out a plan at the beginning and then record when you got it done.
-
-| Task        | Planned completion | Actual completion | Time spent in hrs by X | Time spent in hrs by Y |
-| ----------- | :-----------------:| :---------------: | :--------------------: | :--------------------: |
-| x           | Nov 3              | Nov 6             | 8.5                    | 0                      |
+| Task                           | Planned completion   | Actual completion    |
+| ------------------------------ | :------------------: | :------------------: |
+| Search Engine Design           | April 15             | April 15             |
 
 
 ### High-level Design of Solution

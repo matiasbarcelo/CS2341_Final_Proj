@@ -14,7 +14,8 @@ using namespace std;
 template <typename Comparable, typename Comparable2>
 class DSAvl_tree_ValuesMap{    
     private:
-
+    
+        size_t wordCount;
         struct AvlNode{
             Comparable key;
             map<Comparable2, size_t> values;
@@ -47,6 +48,7 @@ class DSAvl_tree_ValuesMap{
     // Default constructor
     DSAvl_tree_ValuesMap() : root{nullptr}
     {
+        this->wordCount = 0;
     }
 
     // Rule-of-3 Part 1: Copy constructor
@@ -98,6 +100,13 @@ class DSAvl_tree_ValuesMap{
     void prettyPrintTree() const
     {
         prettyPrintTree("", root, false);
+    }
+
+    /**
+     * Gets word count
+    */
+    size_t getWordCount(){
+        return this->wordCount;
     }
 
     /**
@@ -296,6 +305,7 @@ private:
     void insertValue(const Comparable &x, const Comparable2 &y, AvlNode *&t){
         if (t == nullptr){
             t = new AvlNode{x, y, nullptr, nullptr, 0};
+            this->wordCount += 1;
             return;
         }
 
@@ -313,6 +323,7 @@ private:
     void insertValuesWithGivenMap(const Comparable &x, map<string, size_t>& aMap, AvlNode *&t){
         if (t == nullptr){
             t = new AvlNode{x, aMap, nullptr, nullptr, 0};
+            this->wordCount += 1;
             return;
         }
 

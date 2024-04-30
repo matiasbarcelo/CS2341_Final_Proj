@@ -99,3 +99,9 @@ void SearchEngine::prev(){
     resultsLim = (resultsStart + 14) - 15;
     resultsStart = resultsStart - 15;
 }
+
+void SearchEngine::showCounts(){
+    cout << endl << "Num of words in tree: " << to_string(index->getWordCount()) << endl;
+    cout << "Num of people in tree: " << to_string(index->getPeopleCount()) << endl;
+    cout << "Num of orgs in tree: " << to_string(index->getOrgsCount()) << endl << endl;
+}

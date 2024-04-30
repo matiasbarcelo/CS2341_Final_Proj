@@ -47,6 +47,7 @@ int main()
     bool hasPersistence = checkPersistence();
     // asks for dir if not detected, automatically creates persistance file
     SearchEngine* theSearchEngine;
+
     if(hasPersistence){
         cout << "Persistence files found in persistance_files dir" << endl;
         cout << "Please keep in mind that persistence is automatic. ";
@@ -57,6 +58,9 @@ int main()
         string fileDir = getFileDir();
         theSearchEngine = new SearchEngine(false, fileDir);
     }
+
+    // shows some search engine stats
+    theSearchEngine -> showCounts();
 
     // starts query
     string response = "";

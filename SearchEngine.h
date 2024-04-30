@@ -31,6 +31,7 @@ class SearchEngine{
         bool hasSearchResults();
         void next();
         void prev();
+        void showCounts();
 };
 
 #endif

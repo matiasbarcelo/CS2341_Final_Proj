@@ -30,6 +30,9 @@ class IndexHandler{
         string peopleTreeAsString();
         string orgsTreeAsString();
         void persistTrees();
+        size_t getWordCount();
+        size_t getPeopleCount();
+        size_t getOrgsCount();
 
         vector<pair<size_t,string>> searchIndex(set<string> wordsSet, string person = "", string org = "");
  };

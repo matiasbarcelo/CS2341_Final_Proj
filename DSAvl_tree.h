@@ -12,7 +12,8 @@ using namespace std;
 template <typename Comparable, typename Comparable2>
 class DSAvl_tree{    
     private:
-
+        
+        size_t count;
         struct AvlNode{
             Comparable key;
             set<Comparable2> values;
@@ -40,6 +41,7 @@ class DSAvl_tree{
     // Default constructor
     DSAvl_tree() : root{nullptr}
     {
+        this->count = 0;
     }
 
     // Rule-of-3 Part 1: Copy constructor
@@ -91,6 +93,13 @@ class DSAvl_tree{
     void prettyPrintTree() const
     {
         prettyPrintTree("", root, false);
+    }
+
+    /**
+     * Returns the count keys for tree
+    */
+    size_t getCount(){
+        return this->count;
     }
 
     /**
@@ -241,6 +250,7 @@ private:
         if (t == nullptr)
         {
             t = new AvlNode{x, nullptr, nullptr, 0};
+            this->count += 1;
             return; // a single node is always balanced
         }
 
@@ -261,6 +271,7 @@ private:
     void insertValue(const Comparable &x, const Comparable2 &y, AvlNode *&t){
         if (t == nullptr){
             t = new AvlNode{x, y, nullptr, nullptr, 0};
+            this->count += 1;
             return; // a single node is always balanced
         }
 

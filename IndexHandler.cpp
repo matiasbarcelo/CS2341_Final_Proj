@@ -237,3 +237,15 @@ vector<pair<size_t,string>> IndexHandler::searchIndex(set<string> wordsSet, stri
         return pairsOfValuesWithDocs;
     }
 }
+
+size_t IndexHandler::getWordCount(){
+    return words->getWordCount();
+}
+
+size_t IndexHandler::getPeopleCount(){
+    return people->getCount();
+}
+
+size_t IndexHandler::getOrgsCount(){
+    return orgs->getCount();
+}
