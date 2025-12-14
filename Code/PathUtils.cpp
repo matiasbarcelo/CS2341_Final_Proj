@@ -1,0 +1,69 @@
+#include "PathUtils.h"
+
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#else
+#include <unistd.h>
+#include <limits.h>
+#endif
+
+using namespace std;
+
+namespace util {
+    std::filesystem::path getExecutableDir(){
+        try{
+#ifdef _WIN32
+            char buf[MAX_PATH];
+            DWORD len = GetModuleFileNameA(NULL, buf, MAX_PATH);
+            if(len == 0) return std::filesystem::path();
+            return std::filesystem::path(std::string(buf)).parent_path();
+#else
+            char buf[PATH_MAX];
+            ssize_t len = readlink("/proc/self/exe", buf, sizeof(buf)-1);
+            if(len == -1) return std::filesystem::path();
+            buf[len] = '\0';
+            return std::filesystem::path(std::string(buf)).parent_path();
+#endif
+        }
+        catch(...){
+            return std::filesystem::path();
+        }
+    }
+
+    std::filesystem::path findFileInDescendants(const std::filesystem::path &start, const std::string &filename, int maxDepth){
+        try{
+            if(start.empty() || !std::filesystem::exists(start)) return std::filesystem::path();
+            for(std::filesystem::recursive_directory_iterator it(start); it != std::filesystem::recursive_directory_iterator(); ++it){
+                if(it.depth() > maxDepth){
+                    it.disable_recursion_pending();
+                    continue;
+                }
+                try{
+                    if(it->is_regular_file() && it->path().filename() == filename){
+                        return it->path();
+                    }
+                } catch(...){}
+            }
+        } catch(...){}
+        return std::filesystem::path();
+    }
+
+    std::filesystem::path findDirectoryInDescendants(const std::filesystem::path &start, const std::string &dirname, int maxDepth){
+        try{
+            if(start.empty() || !std::filesystem::exists(start)) return std::filesystem::path();
+            for(std::filesystem::recursive_directory_iterator it(start); it != std::filesystem::recursive_directory_iterator(); ++it){
+                if(it.depth() > maxDepth){
+                    it.disable_recursion_pending();
+                    continue;
+                }
+                try{
+                    if(it->is_directory() && it->path().filename() == dirname){
+                        return it->path();
+                    }
+                } catch(...){}
+            }
+        } catch(...){}
+        return std::filesystem::path();
+    }
+}

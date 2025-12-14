@@ -63,6 +63,24 @@ class StopWords{
         }
 
         if(!opened){
+            // try searching deeper in common locations (exe subtree and CWD subtree)
+            if(!exeDir.empty()){
+                auto found = util::findFileInDescendants(exeDir, "stopwords.csv", 5);
+                if(!found.empty() && filesystem::exists(found)){
+                    theFile.open(found);
+                    opened = theFile.is_open();
+                }
+            }
+            if(!opened){
+                auto foundCwd = util::findFileInDescendants(filesystem::current_path(), "stopwords.csv", 5);
+                if(!foundCwd.empty() && filesystem::exists(foundCwd)){
+                    theFile.open(foundCwd);
+                    opened = theFile.is_open();
+                }
+            }
+        }
+
+        if(!opened){
             string msg = "stopwords.csv not found. Tried: ";
             for(const auto &p : candidates) msg += p.string() + " ";
             throw runtime_error(msg);

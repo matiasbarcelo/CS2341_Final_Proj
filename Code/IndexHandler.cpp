@@ -90,7 +90,32 @@ void IndexHandler::persistTrees(){
     }
 
     if(baseDir.empty()){
-        throw runtime_error("Could not find or create persistance_files directory (tried ../persistance_files and exe-dir/persistance_files)");
+        // try to find persistance_files somewhere under the exe directory (useful when code lives in a subfolder like 'Code')
+        if(!exeDir.empty()){
+            auto found = util::findDirectoryInDescendants(exeDir, "persistance_files", 4);
+            if(!found.empty()) baseDir = found;
+        }
+    }
+
+    if(baseDir.empty()){
+        // try to find it under current working directory subtree
+        auto foundCwd = util::findDirectoryInDescendants(filesystem::current_path(), "persistance_files", 4);
+        if(!foundCwd.empty()) baseDir = foundCwd;
+    }
+
+    if(baseDir.empty()){
+        // fallback: create it next to the executable if possible, else in CWD
+        if(!exeDir.empty()){
+            baseDir = exeDir / "persistance_files";
+            try{ filesystem::create_directories(baseDir); } catch(...){}
+        } else {
+            baseDir = filesystem::current_path() / "persistance_files";
+            try{ filesystem::create_directories(baseDir); } catch(...){}
+        }
+    }
+
+    if(baseDir.empty()){
+        throw runtime_error("Could not find or create persistance_files directory (tried ../persistance_files, exe-dir/persistance_files and project subtrees)");
     }
 
     fileHandler.open((baseDir / "word_tree.txt").string());
