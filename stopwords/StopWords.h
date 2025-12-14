@@ -4,6 +4,8 @@
 #include "../DSAvl_tree.h"
 #include <filesystem>
 #include <fstream>
+#include <vector>
+#include "../PathUtils.h"
 using namespace std;
 
 class StopWords{
@@ -39,13 +41,31 @@ class StopWords{
     void parseStopWordsCSV(){
         stopWordsTree = new DSAvl_tree<string, string>();
 
-        // assumes that stopwords.csv is already
+        // try several candidate locations for the stopwords CSV
+        vector<filesystem::path> candidates;
+        candidates.push_back(filesystem::path("../stopwords/stopwords.csv"));
+        candidates.push_back(filesystem::path("stopwords/stopwords.csv"));
+        auto exeDir = util::getExecutableDir();
+        if(!exeDir.empty()){
+            candidates.push_back(exeDir / "stopwords" / "stopwords.csv");
+        }
+
         ifstream theFile;
-        theFile.open("../stopwords/stopwords.csv");
-        
-        // if the file isn't there throw an error
-        if(!theFile.is_open()){
-            throw runtime_error("stopwords.csv not in stopwords dir");
+        bool opened = false;
+        for(const auto &p : candidates){
+            if(filesystem::exists(p)){
+                theFile.open(p);
+                if(theFile.is_open()){
+                    opened = true;
+                    break;
+                }
+            }
+        }
+
+        if(!opened){
+            string msg = "stopwords.csv not found. Tried: ";
+            for(const auto &p : candidates) msg += p.string() + " ";
+            throw runtime_error(msg);
         }
 
         // defined outside loop so var only instantiated once

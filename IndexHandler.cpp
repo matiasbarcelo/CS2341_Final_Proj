@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <utility>
 #include <fstream>
+#include "PathUtils.h"
 // #include "rapidjson/istreamwrapper.h"
 // #include "rapidjson/document.h"
 using namespace std;
@@ -69,16 +70,38 @@ string IndexHandler::peopleTreeAsString(){
 
 void IndexHandler::persistTrees(){
     ofstream fileHandler;
-    
-    fileHandler.open("../persistance_files/word_tree.txt");
+
+    // Try to write to persistance_files relative to CWD first, otherwise next to the executable
+    vector<filesystem::path> candidatesBase;
+    candidatesBase.push_back(filesystem::path("../persistance_files"));
+    auto exeDir = util::getExecutableDir();
+    if(!exeDir.empty()) candidatesBase.push_back(exeDir / "persistance_files");
+
+    filesystem::path baseDir;
+    for(const auto &b : candidatesBase){
+        // try to create directory if missing
+        if(!filesystem::exists(b)){
+            try{ filesystem::create_directories(b); } catch(...){}
+        }
+        if(filesystem::exists(b)){
+            baseDir = b;
+            break;
+        }
+    }
+
+    if(baseDir.empty()){
+        throw runtime_error("Could not find or create persistance_files directory (tried ../persistance_files and exe-dir/persistance_files)");
+    }
+
+    fileHandler.open((baseDir / "word_tree.txt").string());
     fileHandler << words->getKeysAndValuesMapAsString(false);
     fileHandler.close();
 
-    fileHandler.open("../persistance_files/people_tree.txt");
+    fileHandler.open((baseDir / "people_tree.txt").string());
     fileHandler << people->getKeysAndValuesAsString(false);
     fileHandler.close();
 
-    fileHandler.open("../persistance_files/orgs_tree.txt");
+    fileHandler.open((baseDir / "orgs_tree.txt").string());
     fileHandler << orgs->getKeysAndValuesAsString(false);
     fileHandler.close();
 }

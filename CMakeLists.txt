@@ -16,16 +16,16 @@ add_executable(test_AvlTree test_DSAvl_tree.cpp)
 add_test(NAME TestAvlTree COMMAND test_AvlTree)
 add_executable(test_AvlTree_ValuesMap test_DSAvl_tree_ValuesMap.cpp)
 add_test(NAME TestAvlTree_ValuesMap COMMAND test_AvlTree_ValuesMap)
-add_executable(test_DocParser test_DocParser.cpp DocParser.cpp IndexHandler.cpp porter2_stemmer/porter2_stemmer.cpp)
+add_executable(test_DocParser test_DocParser.cpp DocParser.cpp IndexHandler.cpp porter2_stemmer/porter2_stemmer.cpp PathUtils.cpp)
 add_test(NAME TestDocParser COMMAND test_DocParser)
-add_executable(test_QueryEngine test_QueryEngine.cpp QueryEngine.cpp IndexHandler.cpp porter2_stemmer/porter2_stemmer.cpp)
+add_executable(test_QueryEngine test_QueryEngine.cpp QueryEngine.cpp IndexHandler.cpp porter2_stemmer/porter2_stemmer.cpp PathUtils.cpp)
 add_test(NAME TestQueryEngine COMMAND test_QueryEngine)
-add_executable(test_SearchEngine test_SearchEngine.cpp SearchEngine.cpp QueryEngine.cpp IndexHandler.cpp DocParser.cpp porter2_stemmer/porter2_stemmer.cpp)
+add_executable(test_SearchEngine test_SearchEngine.cpp SearchEngine.cpp QueryEngine.cpp IndexHandler.cpp DocParser.cpp porter2_stemmer/porter2_stemmer.cpp PathUtils.cpp)
 add_test(NAME TestSearchEngine COMMAND test_SearchEngine)
 
 
 add_executable(rapidJSONExample rapidJSONExample.cpp)
-add_executable(supersearch main.cpp SearchEngine.cpp QueryEngine.cpp IndexHandler.cpp DocParser.cpp porter2_stemmer/porter2_stemmer.cpp)
+add_executable(supersearch main.cpp SearchEngine.cpp QueryEngine.cpp IndexHandler.cpp DocParser.cpp porter2_stemmer/porter2_stemmer.cpp PathUtils.cpp)
 
 # this makes sure we also link rapidjson
 target_include_directories(rapidJSONExample PRIVATE rapidjson/)
