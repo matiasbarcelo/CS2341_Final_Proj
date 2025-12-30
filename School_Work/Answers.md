@@ -1,3 +1,5 @@
+I ran out of time and did not use this document.
+
 # Assignment 4: Answers
 
 **Complete this document, commit your changes to Github and submit the repository URL to Canvas.** Keep your answers short and precise.

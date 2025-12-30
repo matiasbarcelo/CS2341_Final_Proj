@@ -24,7 +24,7 @@ bool checkPersistence(){
 string getFileDir(){
     string fileDir;
     cout << "Persistence files not found in persistance_files dir." << endl;
-    cout << "Please type in the directory containing all the document files (keep in mind you are in the build folder): ";
+    cout << "Please type in the directory containing all the JSON files (keep in mind this execuatable's directory): ";
     getline(cin, fileDir);
 
     // this loop executes when the directory does not exist or is not a directory but rather a file
@@ -46,6 +46,7 @@ int main()
 {
     // persistence file detected or not detected
     bool hasPersistence = checkPersistence();
+    
     // asks for dir if not detected, automatically creates persistance file
     SearchEngine* theSearchEngine;
 
@@ -56,6 +57,7 @@ int main()
         cout << "Persistence files found in persistance_files dir" << endl;
         cout << "Please keep in mind that persistence is automatic. ";
         cout << "If you have a new dir of data please delete old persistence files and run supersearch again" << endl;
+        cout << "Loading..." << endl;
         theSearchEngine = new SearchEngine();
 
         hasPersistenceEnd = chrono::system_clock::now();
@@ -119,7 +121,7 @@ int main()
                     // this means a command to display a text was chosen
                     else{
                         theSearchEngine->displayText(response);
-                        cout << "Type number of result to display article text (i.e. for the first article text type '0'. To go to next or prev page type 'next' or 'prev')." << 
+                        cout << "Type number of result to display article text (i.e. for the first article text type '0' and so on). To go to next or prev page type 'next' or 'prev')." << 
                         " Press enter for new query. Type 'q' to quit." << endl;
                     }
                     cout << ">";
