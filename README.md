@@ -66,6 +66,7 @@ Which also works vice-versa as
 
 #### How to Build/Run the Project Locally
 
+[DOWNLOAD THE PERSISTENCE FILES](https://drive.google.com/drive/folders/14ifad-TiZq5PTZImZKrvqJ-ay-FI2g8O?usp=drive_link) AND PUT THEM IN **"Code/persistence_files"**:
 
 ##### For Linux and Mac Users
 
