@@ -7,6 +7,15 @@ Professor Michael Hahsler
 
 This was my final project for [Data Structures.](https://github.com/mhahsler/CS2341) We were required to implement a search engine in C++.
 
+#### Live demo / HTTP API host
+
+The same C++ search pipeline (`SearchEngine` → `QueryEngine` → `IndexHandler`) can be served over HTTP for a browser demo (for example on a personal website).
+
+- **Docs:** [API.md](API.md)
+- **Run with Docker:** `docker compose up --build` then open http://localhost:8080/api/search?q=brexit
+- **Deploy:** see `fly.toml` (`fly deploy`)
+- **Binary:** build target `supersearch_api` in `Code/`
+
 We were given a [Kaggle dataset of Finance Articles from Jan - May 2018 as JSON files,](https://www.kaggle.com/datasets/jeet2016/us-financial-news-articles) an implementation of an [AVL tree data structure (DSAvl_tree),](https://github.com/mhahsler/CS2341/blob/main/Chapter4_Trees/AVLTree/AvlTree.h) a JSON parsing tool called [RapidJSON](https://rapidjson.org/) along with an implementation of the Porter Stemming Algorithm for C++ called [porter2stemmer,](https://bitbucket.org/smassung/porter2_stemmer/src) and asked to create a search engine for the articles by implementing an inverted file index data structure.
 
 Additional details and instructions about the project can be found in the "School_Work" directory.

@@ -51,6 +51,10 @@ void DocParser::parseWords(){
         }
 
         filesystem::path filePath = file.path();
+        // Skip macOS metadata and non-article files (e.g. .DS_Store)
+        if(filePath.extension() != ".json"){
+            continue;
+        }
         string fileString = filePath.string();
         ifstream input(fileString);
 
@@ -92,6 +96,9 @@ void DocParser::parsePeople(){
         }
         
         filesystem::path filePath = file.path();
+        if(filePath.extension() != ".json"){
+            continue;
+        }
         string fileString = filePath.string();
         ifstream input(fileString);
         
@@ -122,6 +129,9 @@ void DocParser::parseOrgs(){
         }
         
         filesystem::path filePath = file.path();
+        if(filePath.extension() != ".json"){
+            continue;
+        }
         string fileString = filePath.string();
         ifstream input(fileString);
         

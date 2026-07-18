@@ -23,7 +23,11 @@ set(PORTER2_GIT_TAG "master" CACHE STRING "Git tag/branch for porter2_stemmer to
 
 if(EXISTS "${CMAKE_SOURCE_DIR}/porter2_stemmer/porter2_stemmer.cpp")
 	add_library(porter2_stemmer STATIC porter2_stemmer/porter2_stemmer.cpp)
-	target_include_directories(porter2_stemmer PUBLIC ${CMAKE_SOURCE_DIR}/porter2_stemmer)
+	# Support both "porter2_stemmer.h" and "porter2_stemmer/porter2_stemmer.h"
+	target_include_directories(porter2_stemmer PUBLIC
+		${CMAKE_SOURCE_DIR}/porter2_stemmer
+		${CMAKE_SOURCE_DIR}
+	)
 else()
 	FetchContent_Declare(porter2_stemmer_src GIT_REPOSITORY ${PORTER2_GIT_URL} GIT_TAG ${PORTER2_GIT_TAG})
 	FetchContent_GetProperties(porter2_stemmer_src)
@@ -31,7 +35,18 @@ else()
 		FetchContent_Populate(porter2_stemmer_src)
 	endif()
 	add_library(porter2_stemmer STATIC ${porter2_stemmer_src_SOURCE_DIR}/porter2_stemmer.cpp)
-	target_include_directories(porter2_stemmer PUBLIC ${porter2_stemmer_src_SOURCE_DIR})
+	# FetchContent layout is flat; also expose a virtual parent path via binary dir symlink-like include
+	target_include_directories(porter2_stemmer PUBLIC
+		${porter2_stemmer_src_SOURCE_DIR}
+		${CMAKE_SOURCE_DIR}
+	)
+	# Make #include "porter2_stemmer/porter2_stemmer.h" resolve when using FetchContent
+	file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/include_porter2/porter2_stemmer)
+	file(CREATE_LINK
+		${porter2_stemmer_src_SOURCE_DIR}/porter2_stemmer.h
+		${CMAKE_BINARY_DIR}/include_porter2/porter2_stemmer/porter2_stemmer.h
+		SYMBOLIC COPY_ON_ERROR)
+	target_include_directories(porter2_stemmer PUBLIC ${CMAKE_BINARY_DIR}/include_porter2)
 endif()
 
 add_executable(test_DocParser test_DocParser.cpp DocParser.cpp IndexHandler.cpp PathUtils.cpp)
@@ -49,8 +64,25 @@ add_executable(rapidJSONExample rapidJSONExample.cpp)
 add_executable(supersearch main.cpp SearchEngine.cpp QueryEngine.cpp IndexHandler.cpp DocParser.cpp PathUtils.cpp)
 target_link_libraries(supersearch PRIVATE porter2_stemmer)
 
+# HTTP API host — same SearchEngine pipeline as the CLI, served over HTTP
+add_executable(supersearch_api api_server.cpp SearchEngine.cpp QueryEngine.cpp IndexHandler.cpp DocParser.cpp PathUtils.cpp)
+target_link_libraries(supersearch_api PRIVATE porter2_stemmer)
+# Headers use #include "porter2_stemmer/porter2_stemmer.h" and "rapidjson/..."
+target_include_directories(supersearch_api PRIVATE
+	${CMAKE_SOURCE_DIR}
+	${CMAKE_SOURCE_DIR}/third_party
+)
+if(WIN32)
+	target_link_libraries(supersearch_api PRIVATE ws2_32)
+	# Avoid Windows.h vs std::byte issues when compiling httplib clients
+	target_compile_definitions(supersearch_api PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX)
+endif()
+# pthread is needed by cpp-httplib on Linux
+find_package(Threads REQUIRED)
+target_link_libraries(supersearch_api PRIVATE Threads::Threads)
+
 # Installation rules to produce a redistributable package with CPack
-install(TARGETS supersearch
+install(TARGETS supersearch supersearch_api
 	RUNTIME DESTINATION bin
 )
 

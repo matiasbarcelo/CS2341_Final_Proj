@@ -1,0 +1,10 @@
+services:
+  supersearch-api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      HOST: "0.0.0.0"
+      SUPERSEARCH_DATA_DIR: /app/sample_data
+      SUPERSEARCH_CORS: "*"

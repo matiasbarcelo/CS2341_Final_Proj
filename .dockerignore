@@ -1,0 +1,9 @@
+**/build
+**/.git
+**/dist
+**/.DS_Store
+**/supersearch.exe
+**/persistance_files
+**/persistence_files
+**/*.zip
+School_Work

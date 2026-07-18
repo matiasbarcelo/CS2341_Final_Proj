@@ -3,3 +3,9 @@
 test_data
 .nfs00000000e8c8c3bb00000b87
 data_used
+**/persistance_files/*.txt
+**/persistence_files/*.txt
+stopwords_PER.txt
+.DS_Store
+**/__pycache__
+Code/debug_api.*
